@@ -22,10 +22,10 @@ public abstract class Actor extends DomainEntity {
     public String rol;
 
     // Constructor vacío
-
     public Actor() {
     }
 
+    // Cosntructor completo
     public Actor(String nombreUsuario, String contrasena, String nombre, String primerApellido, String segundoApellido, String correo, String telefono, String imagenUrl, String rol) {
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
@@ -38,6 +38,7 @@ public abstract class Actor extends DomainEntity {
         this.rol = rol;
     }
 
+    // Getters y Setters
     public String getNombreUsuario() {
         return nombreUsuario;
     }
