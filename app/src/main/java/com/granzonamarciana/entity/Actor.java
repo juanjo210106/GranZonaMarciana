@@ -3,18 +3,17 @@ package com.granzonamarciana.entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "actores")
-public class Actor {
-    @PrimaryKey(autoGenerate = true)
-    public int id;
+import java.io.Serializable;
 
-    // Datos personales
-    public String nombreUsuario;
-    public String contrasena;
-    public String nombre;
-    public String apellidos;
-    public String email;
-    public String telefono;
+@Entity(tableName = "actor")
+public abstract class Actor extends DomainEntity {
+    private String nombreUsuario;
+    private String contrasena;
+    private String nombre;
+    private String primerApellido;
+    private String segundoApellido;
+    private String correo;
+    private String telefono;
 
     // Imágenes como enlaces
     public String imagenUrl;
@@ -23,22 +22,22 @@ public class Actor {
     public String rol;
 
     // Constructor vacío
+
     public Actor() {
     }
 
-    // Constructor completo
-    public Actor(String nombreUsuario, String contrasena, String nombre, String apellidos, String email, String telefono, String imagenUrl, String rol) {
+    public Actor(String nombreUsuario, String contrasena, String nombre, String primerApellido, String segundoApellido, String correo, String telefono, String imagenUrl, String rol) {
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
         this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.email = email;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
+        this.correo = correo;
         this.telefono = telefono;
         this.imagenUrl = imagenUrl;
         this.rol = rol;
     }
 
-    // Getters y Setters
     public String getNombreUsuario() {
         return nombreUsuario;
     }
@@ -63,20 +62,28 @@ public class Actor {
         this.nombre = nombre;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getPrimerApellido() {
+        return primerApellido;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setPrimerApellido(String primerApellido) {
+        this.primerApellido = primerApellido;
     }
 
-    public String getEmail() {
-        return email;
+    public String getSegundoApellido() {
+        return segundoApellido;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSegundoApellido(String segundoApellido) {
+        this.segundoApellido = segundoApellido;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getTelefono() {
