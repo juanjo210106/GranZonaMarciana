@@ -3,8 +3,10 @@ package com.granzonamarciana.entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "actores")
-public class Actor {
+public class Actor implements Serializable {
     @PrimaryKey(autoGenerate = true)
     public int id;
 
