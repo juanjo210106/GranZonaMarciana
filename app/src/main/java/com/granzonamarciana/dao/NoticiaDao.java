@@ -25,4 +25,7 @@ public interface NoticiaDao {
 
     @Query("SELECT * FROM noticia ORDER BY fechaPublicacion DESC")
     LiveData<List<Noticia>> listarNoticias();
+
+    @Query("SELECT * FROM noticia WHERE id = :id")
+    LiveData<Noticia> buscarNoticiaPorId(int id);
 }
