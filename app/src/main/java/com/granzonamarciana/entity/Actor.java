@@ -1,58 +1,54 @@
 package com.granzonamarciana.entity;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
-import java.io.Serializable;
-
-@Entity(tableName = "actor")
 public abstract class Actor extends DomainEntity {
-    private String nombreUsuario;
-    private String contrasena;
+    private String username;
+    private String password;
+    private TipoRol rol;
     private String nombre;
-    private String primerApellido;
-    private String segundoApellido;
+    private String apellido1;
+    private String apellido2;
     private String correo;
     private String telefono;
+    private String urlImagen;
 
-    // Imágenes como enlaces
-    public String imagenUrl;
-
-    // Roles: "ADMIN", "CONCURSANTE", "ESPECTADOR"
-    public String rol;
-
-    // Constructor vacío
     public Actor() {
     }
 
-    // Cosntructor completo
-    public Actor(String nombreUsuario, String contrasena, String nombre, String primerApellido, String segundoApellido, String correo, String telefono, String imagenUrl, String rol) {
-        this.nombreUsuario = nombreUsuario;
-        this.contrasena = contrasena;
+    public Actor(String username, String password, TipoRol rol, String nombre, String apellido1, String apellido2, String correo, String telefono, String urlImagen) {
+        this.username = username;
+        this.password = password;
+        this.rol = rol;
         this.nombre = nombre;
-        this.primerApellido = primerApellido;
-        this.segundoApellido = segundoApellido;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
         this.correo = correo;
         this.telefono = telefono;
-        this.imagenUrl = imagenUrl;
-        this.rol = rol;
+        this.urlImagen = urlImagen;
     }
 
     // Getters y Setters
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public TipoRol getRol() {
+        return rol;
+    }
+
+    public void setRol(TipoRol rol) {
+        this.rol = rol;
     }
 
     public String getNombre() {
@@ -63,20 +59,20 @@ public abstract class Actor extends DomainEntity {
         this.nombre = nombre;
     }
 
-    public String getPrimerApellido() {
-        return primerApellido;
+    public String getApellido1() {
+        return apellido1;
     }
 
-    public void setPrimerApellido(String primerApellido) {
-        this.primerApellido = primerApellido;
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
     }
 
-    public String getSegundoApellido() {
-        return segundoApellido;
+    public String getApellido2() {
+        return apellido2;
     }
 
-    public void setSegundoApellido(String segundoApellido) {
-        this.segundoApellido = segundoApellido;
+    public void setApellido2(String apellido2) {
+        this.apellido2 = apellido2;
     }
 
     public String getCorreo() {
@@ -95,19 +91,11 @@ public abstract class Actor extends DomainEntity {
         this.telefono = telefono;
     }
 
-    public String getImagenUrl() {
-        return imagenUrl;
+    public String getUrlImagen() {
+        return urlImagen;
     }
 
-    public void setImagenUrl(String imagenUrl) {
-        this.imagenUrl = imagenUrl;
-    }
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setUrlImagen(String urlImagen) {
+        this.urlImagen = urlImagen;
     }
 }
