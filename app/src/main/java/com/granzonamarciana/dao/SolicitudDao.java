@@ -22,6 +22,12 @@ public interface SolicitudDao {
     @Delete
     void eliminarSolicitud(Solicitud solicitud);
 
+    @Query("SELECT * FROM solicitud")
+    LiveData<List<Solicitud>> listarSolicitudes();
+
+    @Query("SELECT * FROM solicitud WHERE id = :id")
+    LiveData<Solicitud> buscarSolicitudPorId(int id);
+
     // Ver las solicitudes de una edición específica
     @Query("SELECT * FROM solicitud WHERE idEdicion = :idEdicion")
     LiveData<List<Solicitud>> listarSolicitudesPorEdicion(int idEdicion);
@@ -32,5 +38,5 @@ public interface SolicitudDao {
 
     // Listar solo las pendientes
     @Query("SELECT * FROM solicitud WHERE estado = 'PENDIENTE'")
-    LiveData<List<Solicitud>> listarSolicitudesPEndientes();
+    LiveData<List<Solicitud>> listarSolicitudesPendientes();
 }

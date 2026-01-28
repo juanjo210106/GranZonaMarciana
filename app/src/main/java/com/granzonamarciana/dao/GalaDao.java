@@ -23,6 +23,12 @@ public interface GalaDao {
     @Delete
     void eliminarGala(Gala g);
 
+    @Query("SELECT * FROM gala")
+    LiveData<List<Gala>> listarGalas();
+
+    @Query("SELECT * FROM gala WHERE id = :id")
+    LiveData<Gala> buscarGalaPorId(int id);
+
     @Query("SELECT * FROM gala WHERE idEdicion = :idEdicion")
     LiveData<List<Gala>> listarGalasPorEdicion(int idEdicion);
 }

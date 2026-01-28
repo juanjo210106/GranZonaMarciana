@@ -53,5 +53,5 @@ public abstract class DatabaseHelper extends RoomDatabase {
     public abstract GalaDao galaDao();
     public abstract NoticiaDao noticiaDao();
     public abstract PuntuacionDao puntuacionDao();
-    public abstract SolicitudDao solicitudParticipacionDao();
+    public abstract SolicitudDao solicitudDao();
 }
