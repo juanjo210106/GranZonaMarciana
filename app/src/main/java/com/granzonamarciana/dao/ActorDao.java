@@ -1,6 +1,7 @@
 package com.granzonamarciana.dao;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -10,6 +11,7 @@ import com.granzonamarciana.entity.Actor;
 
 import java.util.List;
 
+@Dao
 public interface ActorDao {
     @Insert
     void insertarActor(Actor actor);
