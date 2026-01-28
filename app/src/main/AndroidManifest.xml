@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GranZonaMarciana">
         <activity
+            android:name=".activity.RegistroActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

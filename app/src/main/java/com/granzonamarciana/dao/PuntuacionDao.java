@@ -14,7 +14,7 @@ public interface PuntuacionDao {
 
     // Comprobamos si un espectador ya votó a este concursante en esta gala
     // Con esto devolvemos la puntuación si existe, o null si no
-    @Query("SELECT * FROM puntuacion WHERE idEspectador = :idEspectador AND idGala AND idConcursante = :idConcursante")
+    @Query("SELECT * FROM puntuacion WHERE idEspectador = :idEspectador AND idGala = :idGala AND idConcursante = :idConcursante")
     LiveData<Puntuacion> buscarVoto(int idEspectador, int idGala, int idConcursante);
 
     // Calcular la media de un concursante en una gala

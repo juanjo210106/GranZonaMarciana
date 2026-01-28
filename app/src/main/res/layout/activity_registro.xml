@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Registro de Usuario"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="20dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="´Quiero registrarme como:"
+                android:textStyle="bold"
+                />
+
+            <RadioGroup
+                android:id="@+id/rgRol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp" >
+
+                <RadioButton
+                    android:id="@+id/rbConcursante"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:layout_marginEnd="16dp"
+                    android:text="Concursante" />
+
+                <RadioButton
+                    android:id="@+id/rbEspectador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Espectador" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/etNombreUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre de Usuario (Login)" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                android:inputType="textPassword"/>
+
+            <EditText
+                android:id="@+id/etNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre Real" />
+
+            <EditText
+                android:id="@+id/etApellido1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Primer Apellido" />
+
+            <EditText
+                android:id="@+id/etApellido2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Segundo Apellido"
+                 />
+
+            <EditText
+                android:id="@+id/etCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Correo Electrónico"/>
+
+            <EditText
+                android:id="@+id/etTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="Teléfono"/>
+
+            <Button
+                android:id="@+id/btnGuardarRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Registrarse"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#01488e"/>
+
+        </LinearLayout>
+    </ScrollView>

@@ -39,7 +39,7 @@ public abstract class DatabaseHelper extends RoomDatabase {
             instanciaBD = Room.databaseBuilder(c.getApplicationContext(),
                             DatabaseHelper.class, "granzonamarciana")
                     .fallbackToDestructiveMigration()
-                    .allowMainThreadQueries() // IMPORTANTE: Estilo de tu maestro
+                    .allowMainThreadQueries()
                     .build();
         }
         return instanciaBD;
