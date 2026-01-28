@@ -13,10 +13,11 @@ import com.granzonamarciana.entity.Edicion;
 import com.granzonamarciana.entity.Gala;
 import com.granzonamarciana.entity.Noticia;
 import com.granzonamarciana.entity.Puntuacion;
-import com.granzonamarciana.entity.SolicitudParticipacion;
+import com.granzonamarciana.entity.Solicitud;
 
 // Importamos los DAOs
 import com.granzonamarciana.dao.*;
+
 
 @Database(entities = {
         Administrador.class,
@@ -26,7 +27,7 @@ import com.granzonamarciana.dao.*;
         Gala.class,
         Noticia.class,
         Puntuacion.class,
-        SolicitudParticipacion.class
+        Solicitud.class
 }, version = 1)
 @TypeConverters({LocalDateConverter.class, LocalDateTimeConverter.class})
 public abstract class DatabaseHelper extends RoomDatabase {
