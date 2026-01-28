@@ -1,24 +1,36 @@
 package com.granzonamarciana.entity;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
+import androidx.room.TypeConverters;
+
+import com.granzonamarciana.database.LocalDateTimeConverter;
 
 import java.time.LocalDateTime;
 
-@Entity(tableName = "gala",
-    foreignKeys = @ForeignKey(entity = Edicion.class, parentColumns = "id", childColumns = "idEdicion", onDelete = ForeignKey.CASCADE))
+@Entity(tableName = "gala")
+@TypeConverters({LocalDateTimeConverter.class})
 public class Gala extends DomainEntity {
+
+    private LocalDateTime fechaRealizacion;
+
+    @ColumnInfo(name = "idEdicion")
     private int idEdicion;
-    private LocalDateTime fechaEmision; // LocalDateTime para controlar las 24h exactas
-    private String descripcion;
 
     public Gala() {
     }
 
-    public Gala(int idEdicion, LocalDateTime fechaEmision, String descripcion) {
+    public Gala(LocalDateTime fechaRealizacion, int idEdicion) {
+        this.fechaRealizacion = fechaRealizacion;
         this.idEdicion = idEdicion;
-        this.fechaEmision = fechaEmision;
-        this.descripcion = descripcion;
+    }
+
+    public LocalDateTime getFechaRealizacion() {
+        return fechaRealizacion;
+    }
+
+    public void setFechaRealizacion(LocalDateTime fechaRealizacion) {
+        this.fechaRealizacion = fechaRealizacion;
     }
 
     public int getIdEdicion() {
@@ -27,21 +39,5 @@ public class Gala extends DomainEntity {
 
     public void setIdEdicion(int idEdicion) {
         this.idEdicion = idEdicion;
-    }
-
-    public LocalDateTime getFechaEmision() {
-        return fechaEmision;
-    }
-
-    public void setFechaEmision(LocalDateTime fechaEmision) {
-        this.fechaEmision = fechaEmision;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 }
