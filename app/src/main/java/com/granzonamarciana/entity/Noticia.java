@@ -16,6 +16,12 @@ public class Noticia extends DomainEntity {
     private String cuerpo;
     private String urlImagen;
 
+
+    // Cosntructor vacío
+    public Noticia() {
+
+    }
+
     // Constructor
     public Noticia(LocalDateTime fechaPublicacion, String cabecera, String cuerpo, String urlImagen) {
         this.fechaPublicacion = fechaPublicacion;

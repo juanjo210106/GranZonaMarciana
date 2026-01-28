@@ -6,12 +6,20 @@ import java.time.LocalDate;
 
 public class LocalDateConverter {
     @TypeConverter
-    public static LocalDate fromLocalDate(Long value) {
-        return value == null ? null : LocalDate.ofEpochDay(value);
+    public static LocalDate toDate(String dateString) {
+        if (dateString == null) {
+            return null;
+        } else {
+            return LocalDate.parse(dateString);
+        }
     }
 
     @TypeConverter
-    public static Long dateToLocalDate(LocalDate date) {
-        return date == null ? null : date.toEpochDay();
+    public static String toDateString(LocalDate date) {
+        if (date == null) {
+            return null;
+        } else {
+            return date.toString();
+        }
     }
 }

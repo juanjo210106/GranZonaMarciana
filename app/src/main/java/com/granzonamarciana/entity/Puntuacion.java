@@ -18,6 +18,10 @@ public class Puntuacion extends DomainEntity {
     @ColumnInfo(name = "idGala")
     private int idGala;
 
+
+    public Puntuacion() {
+    }
+
     // Constructor completo
     public Puntuacion(int valor, int idEspectador, int idConcursante, int idGala) {
         this.valor = valor;
