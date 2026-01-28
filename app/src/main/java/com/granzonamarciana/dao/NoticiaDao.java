@@ -1,5 +1,6 @@
 package com.granzonamarciana.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,19 +15,14 @@ import java.util.List;
 public interface NoticiaDao {
 
     @Insert
-    void insertar(Noticia noticia);
+    void insertarNoticia(Noticia n);
 
     @Update
-    void actualizar(Noticia noticia);
+    void actualizarNoticia(Noticia n);
 
     @Delete
-    void eliminar(Noticia noticia);
+    void eliminarNoticia(Noticia n);
 
-    // Requisito: Consultar el listado de noticias del sistema
     @Query("SELECT * FROM noticia ORDER BY fechaPublicacion DESC")
-    List<Noticia> obtenerTodas();
-
-    // Requisito: Visualizar el detalle de cada noticia
-    @Query("SELECT * FROM noticia WHERE id = :id")
-    Noticia obtenerPorId(int id);
+    LiveData<List<Noticia>> listarNoticias();
 }

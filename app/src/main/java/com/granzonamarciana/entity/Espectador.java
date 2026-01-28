@@ -6,7 +6,7 @@ import androidx.room.Entity;
 public class Espectador extends Actor {
 
     public Espectador() {
-        super();
+
     }
 
     public Espectador(String username, String password, TipoRol rol, String nombre,

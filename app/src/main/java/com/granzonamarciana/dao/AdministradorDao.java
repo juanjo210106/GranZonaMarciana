@@ -1,5 +1,6 @@
 package com.granzonamarciana.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,20 +15,20 @@ import java.util.List;
 public interface AdministradorDao {
 
     @Insert
-    void insertar(Administrador administrador);
+    void insertarAdministrador(Administrador a);
 
     @Update
-    void actualizar(Administrador administrador);
+    void actualizarAdministrador(Administrador a);
 
     @Delete
-    void eliminar(Administrador administrador);
+    void eliminarAdministrador(Administrador a);
 
     @Query("SELECT * FROM administrador")
-    List<Administrador> obtenerTodos();
+    LiveData<List<Administrador>> listarAdministradores();
 
     @Query("SELECT * FROM administrador WHERE id = :id")
-    Administrador obtenerPorId(int id);
+    LiveData<Administrador> buscarAdministradorPorId(int id);
 
-    @Query("SELECT * FROM administrador WHERE username = :username AND password = :password")
-    Administrador login(String username, String password);
+    @Query("SELECT * FROM administrador WHERE username = :username")
+    LiveData<Administrador> buscarAdministradorPorUsername(String username);
 }

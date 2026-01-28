@@ -1,5 +1,6 @@
 package com.granzonamarciana.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,20 +15,20 @@ import java.util.List;
 public interface EspectadorDao {
 
     @Insert
-    void insertar(Espectador espectador);
+    void insertarEspectador(Espectador e);
 
     @Update
-    void actualizar(Espectador espectador);
+    void actualizarEspectador(Espectador e);
 
     @Delete
-    void eliminar(Espectador espectador);
+    void eliminarEspectador(Espectador e);
 
     @Query("SELECT * FROM espectador")
-    List<Espectador> obtenerTodos();
+    LiveData<List<Espectador>> listarEspectadores();
 
     @Query("SELECT * FROM espectador WHERE id = :id")
-    Espectador obtenerPorId(int id);
+    LiveData<Espectador> buscarEspectadorPorId(int id);
 
-    @Query("SELECT * FROM espectador WHERE username = :username AND password = :password")
-    Espectador login(String username, String password);
+    @Query("SELECT * FROM espectador WHERE username = :username")
+    LiveData<Espectador> buscarEspectadorPorUsername(String username);
 }

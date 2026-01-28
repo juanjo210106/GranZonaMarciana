@@ -1,5 +1,6 @@
 package com.granzonamarciana.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,21 +15,14 @@ import java.util.List;
 public interface GalaDao {
 
     @Insert
-    void insertar(Gala gala);
+    void insertarGala(Gala g);
 
     @Update
-    void actualizar(Gala gala);
+    void actualizarGala(Gala g);
 
     @Delete
-    void eliminar(Gala gala);
+    void eliminarGala(Gala g);
 
-    @Query("SELECT * FROM gala")
-    List<Gala> obtenerTodas();
-
-    @Query("SELECT * FROM gala WHERE id = :id")
-    Gala obtenerPorId(int id);
-
-    // Requisito de consultar el listado de galas de cada edición
-    @Query("SELECT * FROM gala WHERE idEdicion = :idEdicion ORDER BY fechaRealizacion ASC")
-    List<Gala> obtenerGalasPorEdicion(int idEdicion);
+    @Query("SELECT * FROM gala WHERE idEdicion = :idEdicion")
+    LiveData<List<Gala>> listarGalasPorEdicion(int idEdicion);
 }

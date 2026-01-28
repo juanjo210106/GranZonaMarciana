@@ -1,26 +1,52 @@
 package com.granzonamarciana.entity;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
+import androidx.room.TypeConverters;
 
-@Entity(tableName = "solicitud",
-        foreignKeys = {
-            @ForeignKey(entity = Actor.class, parentColumns = "id", childColumns = "idConcursante", onDelete = ForeignKey.CASCADE),
-            @ForeignKey(entity = Edicion.class, parentColumns = "id", childColumns = "idEdicion", onDelete = ForeignKey.CASCADE)
-        })
+
+@Entity(tableName = "solicitud")
 public class Solicitud extends DomainEntity {
-    private int idConcursante;
-    private int idEdicion;
-    private String mensaje;
-    private String estado; // PENDIENTE, RECHAZADA, ACEPTADA
 
+    @ColumnInfo(name = "mensaje")
+    private String mensaje;
+
+    @ColumnInfo(name = "estado")
+    private EstadoSolicitud estado;
+
+    @ColumnInfo(name = "idConcursante")
+    private int idConcursante;
+
+    @ColumnInfo(name = "idEdicion")
+    private int idEdicion;
+
+    // Constructor vacío
     public Solicitud() {
+        super();
     }
 
-    public Solicitud(int idConcursante, int idEdicion, String mensaje, String estado) {
+    // Constructor completo
+    public Solicitud(String mensaje, EstadoSolicitud estado, int idConcursante, int idEdicion) {
+        this.mensaje = mensaje;
+        this.estado = estado;
         this.idConcursante = idConcursante;
         this.idEdicion = idEdicion;
+    }
+
+    // Getters y Setters
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
+    }
+
+    public EstadoSolicitud getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoSolicitud estado) {
         this.estado = estado;
     }
 
@@ -38,21 +64,5 @@ public class Solicitud extends DomainEntity {
 
     public void setIdEdicion(int idEdicion) {
         this.idEdicion = idEdicion;
-    }
-
-    public String getMensaje() {
-        return mensaje;
-    }
-
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
 }

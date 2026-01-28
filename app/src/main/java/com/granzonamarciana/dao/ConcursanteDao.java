@@ -1,5 +1,6 @@
 package com.granzonamarciana.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,20 +15,20 @@ import java.util.List;
 public interface ConcursanteDao {
 
     @Insert
-    void insertar(Concursante concursante);
+    void insertarConcursante(Concursante c);
 
     @Update
-    void actualizar(Concursante concursante);
+    void actualizarConcursante(Concursante c);
 
     @Delete
-    void eliminar(Concursante concursante);
+    void eliminarConcursante(Concursante c);
 
     @Query("SELECT * FROM concursante")
-    List<Concursante> obtenerTodos();
+    LiveData<List<Concursante>> listarConcursantes();
 
     @Query("SELECT * FROM concursante WHERE id = :id")
-    Concursante obtenerPorId(int id);
+    LiveData<Concursante> buscarConcursantePorId(int id);
 
-    @Query("SELECT * FROM concursante WHERE username = :username AND password = :password")
-    Concursante login(String username, String password);
+    @Query("SELECT * FROM concursante WHERE username = :username")
+    LiveData<Concursante> buscarConcursantePorUsername(String username);
 }
