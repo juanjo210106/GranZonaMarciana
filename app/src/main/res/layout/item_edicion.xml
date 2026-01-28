@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="12dp"
@@ -13,7 +14,7 @@
         android:layout_height="60dp"
         android:layout_marginEnd="12dp"
         android:src="@android:drawable/ic_menu_agenda"
-        android:contentDescription="Icono Edición"
+        android:contentDescription="@string/app_name"
         app:tint="@color/design_default_color_primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvFechas"
@@ -24,22 +25,22 @@
         android:id="@+id/tvTituloEdicion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="La Carcel De Los Gemelos"
+        android:layout_marginEnd="8dp"
         android:textStyle="bold"
         android:textSize="18sp"
+        tools:text="@string/txt_ejemplo_concurso"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/imgEdicion"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="8dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/tvFechas"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Inicio: 01/01/2026 - Fin: 30/03/2026"
         android:textSize="14sp"
         android:textColor="@android:color/darker_gray"
         android:layout_marginTop="4dp"
+        tools:text="Inicio: 01/01/2026 - Fin: 30/03/2026"
         app:layout_constraintTop_toBottomOf="@id/tvTituloEdicion"
         app:layout_constraintStart_toEndOf="@id/imgEdicion"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -48,11 +49,11 @@
         android:id="@+id/tvParticipantes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Max. Participantes: 20"
         android:textSize="14sp"
         android:textStyle="italic"
         android:textColor="@android:color/holo_blue_dark"
         android:layout_marginTop="4dp"
+        tools:text="Max. Participantes: 20"
         app:layout_constraintStart_toEndOf="@id/imgEdicion"
         app:layout_constraintTop_toBottomOf="@id/tvFechas"/>
 

@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Gran Zona Marciana</string>
+
+    <string name="btn_volver">Volver</string>
+    <string name="txt_inicio">Inicio</string>
+    <string name="txt_fin">Fin</string>
+
+    <string name="btn_crear_edicion">Crear Edición</string>
+    <string name="msg_sin_ediciones">No hay ediciones disponibles</string>
+    <string name="txt_titulo_edicion">Edición</string>
+    <string name="txt_max_participantes">Max. Participantes</string>
+
+    <string name="txt_ejemplo_concurso">La Carcel de los Gemelos</string>
 </resources>

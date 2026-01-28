@@ -39,13 +39,19 @@ public class EdicionAdapter extends ArrayAdapter<Edicion> {
         if (edicion != null) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-            tvTituloEdicion.setText("Edición " + edicion.getId());
+            String titulo = getContext().getString(R.string.txt_titulo_edicion);
+            tvTituloEdicion.setText(titulo + " " + edicion.getId());
+
+            String inicioLabel = getContext().getString(R.string.txt_inicio);
+            String finLabel = getContext().getString(R.string.txt_fin);
 
             String inicio = edicion.getFechaInicio() != null ? edicion.getFechaInicio().format(formatter) : "";
             String fin = edicion.getFechaFin() != null ? edicion.getFechaFin().format(formatter) : "";
 
-            tvFechas.setText("Inicio: " + inicio + " - Fin: " + fin);
-            tvParticipantes.setText("Max. Participantes: " + edicion.getMaxParticipantes());
+            tvFechas.setText(inicioLabel + ": " + inicio + " - " + finLabel + ": " + fin);
+
+            String partLabel = getContext().getString(R.string.txt_max_participantes);
+            tvParticipantes.setText(partLabel + ": " + edicion.getMaxParticipantes());
         }
 
         return convertView;
