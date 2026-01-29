@@ -32,7 +32,7 @@ public class FormNoticia extends AppCompatActivity {
         Button btnGuardar = findViewById(R.id.btnGuardarNoticia);
         TextView tvHeader = findViewById(R.id.tvHeaderNoticia);
 
-        // Se rellenan campos si es edición (Estilo maestro)
+        // Se rellenan campos si es edición
         noticiaExistente = (Noticia) getIntent().getSerializableExtra("noticia");
         if (noticiaExistente != null) {
             etCabecera.setText(noticiaExistente.getCabecera());

@@ -33,7 +33,7 @@ public class ListGala extends AppCompatActivity {
 
         galaService = new GalaService(ListGala.this);
 
-        // Recuperamos la edición para saber qué galas mostrar (Estilo maestro)
+        // Recuperamos la edición para saber qué galas mostrar
         edicionActual = (Edicion) getIntent().getSerializableExtra("edicion");
 
         ListView lvGalas = findViewById(R.id.lvGalas);
@@ -41,7 +41,7 @@ public class ListGala extends AppCompatActivity {
         MaterialButton btnCrearGala = findViewById(R.id.btnCrearGala);
         MaterialButton btnVolver = findViewById(R.id.btnVolver);
 
-        // Se muestra si no hay galas (Estilo maestro)
+        // Se muestra si no hay galas
         lvGalas.setEmptyView(tvSinGalas);
 
         galaAdapter = new GalaAdapter(ListGala.this, new ArrayList<>());

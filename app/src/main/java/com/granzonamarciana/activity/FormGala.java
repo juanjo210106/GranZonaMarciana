@@ -37,7 +37,7 @@ public class FormGala extends AppCompatActivity {
         Button btnGuardarGala = findViewById(R.id.btnGuardarGala);
         TextView tvHeaderGala = findViewById(R.id.tvHeaderGala);
 
-        // Se rellenan campos del formulario si venimos de editar (Estilo maestro)
+        // Se rellenan campos del formulario si venimos de editar
         galaExistente = (Gala) getIntent().getSerializableExtra("gala");
         edicionPertenece = (Edicion) getIntent().getSerializableExtra("edicion");
 
@@ -93,7 +93,7 @@ public class FormGala extends AppCompatActivity {
             }
         });
 
-        // Volver (Estilo maestro)
+        // Volver
         Button btnVolver = findViewById(R.id.btnVolver);
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override

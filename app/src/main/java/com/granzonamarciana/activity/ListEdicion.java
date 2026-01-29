@@ -54,7 +54,7 @@ public class ListEdicion extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Edicion edicion = (Edicion) parent.getItemAtPosition(position);
-                Intent i = new Intent(ListEdicion.this, FormEdicionActivity.class);
+                Intent i = new Intent(ListEdicion.this, FormEdicion.class);
                 i.putExtra("idEdicion", edicion.getId());
                 startActivity(i);
             }
@@ -63,7 +63,7 @@ public class ListEdicion extends AppCompatActivity {
         btnCrearEdicion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ListEdicion.this, FormEdicionActivity.class);
+                Intent i = new Intent(ListEdicion.this, FormEdicion.class);
                 startActivity(i);
             }
         });

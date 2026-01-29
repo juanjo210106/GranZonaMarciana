@@ -30,17 +30,16 @@ import com.granzonamarciana.dao.SolicitudDao;
         Puntuacion.class,
         Solicitud.class
 }, version = 1)
-@TypeConverters({LocalDateConverter.class, LocalDateTimeConverter.class})
+@TypeConverters({LocalDateConverter.class, LocalDateTimeConverter.class, EstadoSolicitudConverter.class})
 public abstract class DatabaseHelper extends RoomDatabase {
 
     private static DatabaseHelper instanciaBD;
 
     public static synchronized DatabaseHelper getInstance(Context c) {
         if (instanciaBD == null) {
-            // Nombre de la base de datos igual al proyecto
             instanciaBD = Room.databaseBuilder(c.getApplicationContext(),
                             DatabaseHelper.class, "granzonamarciana")
-                    .fallbackToDestructiveMigration() // Estilo maestro
+                    .fallbackToDestructiveMigration()
                     .allowMainThreadQueries()         // Permite consultas rápidas en el hilo principal
                     .build();
         }

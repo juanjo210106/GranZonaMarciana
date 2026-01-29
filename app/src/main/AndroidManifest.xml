@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GranZonaMarciana">
         <activity
+            android:name=".activity.FormSolicitud"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ListSolicitud"
+            android:exported="false" />
+        <activity
             android:name=".activity.ListUsuario"
             android:exported="false" />
         <activity

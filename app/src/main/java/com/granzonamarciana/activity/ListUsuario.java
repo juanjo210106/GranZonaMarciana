@@ -27,19 +27,19 @@ public class ListUsuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_usuario);
 
-        // 1. Inicializar componentes de la UI
+        // Inicializar componentes de la UI
         ListView lvUsuarios = findViewById(R.id.lvUsuarios);
         TextView tvSinUsuarios = findViewById(R.id.tvSinUsuarios);
         Button btnVolver = findViewById(R.id.btnVolver);
 
-        // 2. Configurar el adaptador (Estilo Maestro)
+        // Configurar el adaptador
         usuarioAdapter = new UsuarioAdapter(ListUsuario.this, new ArrayList<Usuario>());
         lvUsuarios.setAdapter(usuarioAdapter);
 
         // Se muestra automáticamente tvSinUsuarios si la lista está vacía
         lvUsuarios.setEmptyView(tvSinUsuarios);
 
-        // 3. Inicializar el servicio y observar los datos
+        // Inicializar el servicio y observar los datos
         usuarioService = new UsuarioService(ListUsuario.this);
 
         usuarioService.listarUsuarios().observe(this, new Observer<List<Usuario>>() {
@@ -53,7 +53,7 @@ public class ListUsuario extends AppCompatActivity {
             }
         });
 
-        // 4. Configurar botón volver
+        // Configurar botón volver
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

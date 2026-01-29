@@ -36,13 +36,13 @@ public class ListNoticia extends AppCompatActivity {
         MaterialButton btnCrearNoticia = findViewById(R.id.btnCrearNoticia);
         MaterialButton btnVolver = findViewById(R.id.btnVolver);
 
-        // Se configura la vista vacía (Estilo maestro)
+        // Se configura la vista vacía
         lvNoticias.setEmptyView(tvSinNoticias);
 
         noticiaAdapter = new NoticiaAdapter(ListNoticia.this, new ArrayList<>());
         lvNoticias.setAdapter(noticiaAdapter);
 
-        // Observamos los cambios en la lista de noticias (Estilo maestro)
+        // Observamos los cambios en la lista de noticias
         noticiaService.listarNoticias().observe(this, new Observer<List<Noticia>>() {
             @Override
             public void onChanged(List<Noticia> noticias) {

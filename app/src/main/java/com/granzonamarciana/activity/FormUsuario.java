@@ -30,7 +30,7 @@ public class FormUsuario extends AppCompatActivity {
 
         inicializarCampos();
 
-        // Lógica del maestro para recuperar la sesión
+        // Lógica para recuperar la sesión
         id = getSharedPreferences("granzonaUser", MODE_PRIVATE).getInt("id", -1);
 
         usuarioService = new UsuarioService(this);
@@ -83,7 +83,7 @@ public class FormUsuario extends AppCompatActivity {
             return;
         }
 
-        // Cifrado de contraseña con BCrypt igual que el maestro
+        // Cifrado de contraseña con BCrypt
         String passwordCifrada = BCrypt.hashpw(
                 etContrasena.getText().toString().trim(),
                 BCrypt.gensalt()
