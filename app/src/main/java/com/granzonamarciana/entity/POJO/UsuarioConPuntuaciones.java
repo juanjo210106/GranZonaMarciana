@@ -13,8 +13,8 @@ public class UsuarioConPuntuaciones {
     public Usuario usuario;
 
     @Relation(
-            parentColumn = "id",    // ID del Usuario
-            entityColumn = "espectadorId" // FK en la tabla Puntuacion
+            parentColumn = "id",        // ID del Usuario (PK)
+            entityColumn = "idEspectador" // DEBE COINCIDIR con el campo en Puntuacion (FK)
     )
     public List<Puntuacion> puntuaciones;
 }

@@ -13,8 +13,8 @@ public class UsuarioConSolicitudes {
     public Usuario usuario;
 
     @Relation(
-            parentColumn = "id",    // ID del Usuario
-            entityColumn = "actorId" // FK en la tabla Solicitud
+            parentColumn = "id",        // ID en la tabla Usuario
+            entityColumn = "idConcursante" // DEBE COINCIDIR con el campo de tu entidad Solicitud
     )
     public List<Solicitud> solicitudes;
 }

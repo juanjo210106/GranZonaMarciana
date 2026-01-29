@@ -5,6 +5,9 @@ import androidx.room.Entity;
 @Entity(tableName = "administrador")
 public class Administrador extends Actor {
 
+    public Administrador() {
+    }
+
     public Administrador(String username, String password, TipoRol rol, String nombre,
                          String apellido1, String apellido2, String correo,
                          String telefono, String urlImagen) {

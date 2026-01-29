@@ -25,13 +25,14 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        // cargar sesión de granzonaUser
         sharedPreferences = getSharedPreferences("granzonaUser", MODE_PRIVATE);
         username = sharedPreferences.getString("username", "Invitado");
         rol = sharedPreferences.getString("rol", "");
 
-        actualizarSaludo();
+        usuarioLogueado();
 
-        // Inicializar lógica de botones
+        // Inicializar lógica de cada botón
         botonNoticias();
         botonEdiciones();
         botonSolicitudes();
@@ -45,16 +46,17 @@ public class Menu extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        actualizarSaludo();
+        usuarioLogueado();
     }
 
-    private void actualizarSaludo() {
+    // Usuario Logueado: Actualiza el saludo
+    private void usuarioLogueado() {
         username = sharedPreferences.getString("username", "Invitado");
         TextView tvBienvenido = findViewById(R.id.tvBienvenido);
         tvBienvenido.setText("Hola, " + username);
     }
 
-    // Botón común para todos
+    // Ver Noticias: Común para todos
     private void botonNoticias() {
         Button btn = findViewById(R.id.btnVerNoticias);
         btn.setOnClickListener(v -> {
@@ -62,7 +64,7 @@ public class Menu extends AppCompatActivity {
         });
     }
 
-    // Gestionar Ediciones (Solo Admin)
+    // Gestionar Ediciones: Solo ADMIN
     private void botonEdiciones() {
         Button btn = findViewById(R.id.btnGestionarEdiciones);
         if (!rol.equals(TipoRol.ADMINISTRADOR.toString())) {
@@ -75,7 +77,7 @@ public class Menu extends AppCompatActivity {
         }
     }
 
-    // Gestionar Solicitudes (Solo Admin)
+    // Gestionar Solicitudes: Solo ADMIN
     private void botonSolicitudes() {
         Button btn = findViewById(R.id.btnGestionarSolicitudes);
         if (!rol.equals(TipoRol.ADMINISTRADOR.toString())) {
@@ -88,7 +90,7 @@ public class Menu extends AppCompatActivity {
         }
     }
 
-    // Votar Galas (Espectador y Concursante)
+    // votar Galas: Espectadores y Concursantes (No Admins)
     private void botonVotar() {
         Button btn = findViewById(R.id.btnVotarGalas);
         if (rol.equals(TipoRol.ADMINISTRADOR.toString()) || rol.isEmpty()) {
@@ -101,7 +103,7 @@ public class Menu extends AppCompatActivity {
         }
     }
 
-    // Inscribirse (Solo Espectador)
+    // Inscribirse: Solo ESPECTADOR (Para pedir ser concursante)
     private void botonInscribirse() {
         Button btn = findViewById(R.id.btnInscribirse);
         if (!rol.equals(TipoRol.ESPECTADOR.toString())) {
@@ -109,12 +111,12 @@ public class Menu extends AppCompatActivity {
         } else {
             btn.setVisibility(VISIBLE);
             btn.setOnClickListener(v -> {
-                startActivity(new Intent(Menu.this, FormInscribirse.class));
+                startActivity(new Intent(Menu.this, FormSolicitud.class));
             });
         }
     }
 
-    // Lista de Usuarios (Solo Admin)
+    // Lista de Usuarios: Solo ADMIN
     private void botonUsuarios() {
         Button btn = findViewById(R.id.btnUsuarios);
         if (!rol.equals(TipoRol.ADMINISTRADOR.toString())) {
@@ -127,7 +129,7 @@ public class Menu extends AppCompatActivity {
         }
     }
 
-    // Editar Perfil (Cualquier usuario logueado)
+    // Editar Perfil: Cualquiera con cuenta
     private void botonEditarPerfil() {
         Button btn = findViewById(R.id.btnEditarPerfil);
         if (rol.isEmpty()) {
@@ -140,12 +142,13 @@ public class Menu extends AppCompatActivity {
         }
     }
 
-    // Cerrar Sesión
+    // Cerrar Sesión: Limpiar preferencias y volver al Login
     private void botonCerrarSesion() {
-        Button btn = findViewById(R.id.btnCerrarSesion);
-        btn.setOnClickListener(v -> {
+        Button btnCerrarSesion = findViewById(R.id.btnCerrarSesion);
+        btnCerrarSesion.setOnClickListener(v -> {
             sharedPreferences.edit().clear().apply();
             Intent intent = new Intent(Menu.this, MainActivity.class);
+            // Flags para limpiar el historial de pantallas (Estilo Maestro)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         });
