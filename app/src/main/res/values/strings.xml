@@ -35,4 +35,12 @@
     <string name="btn_guardar">Guardar</string>
     <string name="error_fechas">La fecha de fin debe ser posterior a la de inicio</string>
 
+    <string name="btn_crear_gala">Crear Gala</string>
+    <string name="msg_sin_galas">No hay galas programadas para esta edición</string>
+    <string name="txt_titulo_gala">Gala</string>
+    <string name="txt_fecha_hora">Fecha y Hora</string>
+
+    <string name="titulo_form_gala">Gestión de Gala</string>
+    <string name="hint_fecha_gala">Fecha de Gala (dd/MM/yyyy HH:mm)</string>
+    <string name="msg_gala_fuera_rango">La fecha de la gala debe estar dentro del periodo de la edición</string>
 </resources>
