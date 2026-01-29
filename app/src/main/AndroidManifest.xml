@@ -13,41 +13,51 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GranZonaMarciana">
-
+        <activity
+            android:name=".activity.ListUsuario"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Menu"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ActivityMenu"
+            android:exported="false" />
+        <activity
+            android:name=".activity.FormIdentificacion"
+            android:exported="false" />
+        <activity
+            android:name=".activity.FormUsuario"
+            android:exported="false" />
         <activity
             android:name=".activity.ListEdicion"
             android:exported="false" />
         <activity
             android:name=".activity.FormEdicion"
             android:exported="false" />
-
         <activity
             android:name=".activity.ListGala"
             android:exported="false" />
         <activity
             android:name=".activity.FormGala"
             android:exported="false" />
-
         <activity
             android:name=".activity.ListNoticia"
             android:exported="false" />
         <activity
             android:name=".activity.FormNoticia"
             android:exported="false" />
-
         <activity
             android:name=".activity.RegistroActivity"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

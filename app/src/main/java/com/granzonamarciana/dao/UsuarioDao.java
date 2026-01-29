@@ -32,22 +32,21 @@ public interface UsuarioDao {
     @Query("SELECT * FROM usuario WHERE id = :idUsuario")
     LiveData<Usuario> buscarUsuarioPorId(int idUsuario);
 
-    // En Gran Zona Marciana nos identificamos por Correo
+
+    @Query("SELECT * FROM usuario WHERE username = :username")
+    LiveData<Usuario> buscarUsuarioPorUsername(String username);
+
     @Query("SELECT * FROM usuario WHERE correo = :correo")
     LiveData<Usuario> buscarUsuarioPorCorreo(String correo);
 
-    // Método síncrono para el LoginService (Estilo maestro)
-    @Query("SELECT * FROM usuario WHERE correo = :correo LIMIT 1")
-    Usuario loginUsuario(String correo);
 
-    // --- MÉTODOS CON TRANSACCIONES (RELACIONES) ---
+    @Query("SELECT * FROM usuario WHERE username = :username LIMIT 1")
+    Usuario loginUsuario(String username);
 
-    // Relación: Usuario con sus Solicitudes para participar
     @Transaction
     @Query("SELECT * FROM usuario WHERE id = :idUsuario")
     LiveData<UsuarioConSolicitudes> buscarUsuarioConSolicitudesPorId(int idUsuario);
 
-    // Relación: Usuario con sus Puntuaciones (Votos realizados)
     @Transaction
     @Query("SELECT * FROM usuario WHERE id = :idUsuario")
     LiveData<UsuarioConPuntuaciones> buscarUsuarioConPuntuacionesPorId(int idUsuario);

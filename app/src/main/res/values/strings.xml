@@ -58,5 +58,21 @@
     <string name="msg_noticia_creada">Noticia publicada con éxito</string>
     <string name="msg_noticia_actualizada">Noticia actualizada con éxito</string>
 
+    <string name="titulo_registro">Registro de Usuario</string>
+    <string name="titulo_editar_perfil">Mi Perfil</string>
+    <string name="label_dni">DNI / NIE</string>
+    <string name="label_nombre">Nombre</string>
+    <string name="label_apellido1">Primer Apellido</string>
+    <string name="label_apellido2">Segundo Apellido</string>
+    <string name="label_telefono">Teléfono</string>
+    <string name="label_correo">Correo Electrónico (Login)</string>
+    <string name="label_poblacion">Población</string>
+    <string name="label_provincia">Provincia</string>
+    <string name="label_fecha_nac">Fecha de Nacimiento</string>
+    <string name="label_password">Contraseña</string>
+    <string name="btn_guardar_usuario">Confirmar Registro</string>
 
+    <string name="error_faltan_datos">Por favor, rellena todos los campos obligatorios</string>
+    <string name="msg_registro_exito">Usuario registrado correctamente</string>
+    <string name="msg_perfil_actualizado">Perfil actualizado con éxito</string>
 </resources>

@@ -46,13 +46,21 @@ public class UsuarioService {
         return usuarioDao.buscarUsuarioPorId(idUsuario);
     }
 
+    /**
+     * Busca un usuario por su nombre de usuario de forma observable.
+     * Requerido para el proceso de Login en MainActivity
+     */
+    public LiveData<Usuario> buscarUsuarioPorUsername(String username) {
+        return usuarioDao.buscarUsuarioPorUsername(username);
+    }
+
     public LiveData<Usuario> buscarUsuarioPorCorreo(String correo) {
         return usuarioDao.buscarUsuarioPorCorreo(correo);
     }
 
-    // Método síncrono para el proceso de Login (Estilo maestro)
-    public Usuario loginUsuario(String correo) {
-        return usuarioDao.loginUsuario(correo);
+    // Método síncrono para comprobaciones rápidas si fuera necesario
+    public Usuario loginUsuario(String username) {
+        return usuarioDao.loginUsuario(username);
     }
 
     // --- MÉTODOS DE RELACIONES (POJOs) ---
