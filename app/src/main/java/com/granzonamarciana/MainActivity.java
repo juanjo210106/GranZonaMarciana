@@ -6,8 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.granzonamarciana.activity.RegistroActivity;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override

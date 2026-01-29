@@ -6,23 +6,24 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import com.granzonamarciana.entity.Administrador;
-import com.granzonamarciana.entity.Concursante;
-import com.granzonamarciana.entity.Espectador;
+// Entidades (Importamos Usuario en lugar de las clases individuales)
+import com.granzonamarciana.entity.Usuario;
 import com.granzonamarciana.entity.Edicion;
 import com.granzonamarciana.entity.Gala;
 import com.granzonamarciana.entity.Noticia;
 import com.granzonamarciana.entity.Puntuacion;
 import com.granzonamarciana.entity.Solicitud;
 
-// Importamos los DAOs
-import com.granzonamarciana.dao.*;
-
+// DAOs
+import com.granzonamarciana.dao.UsuarioDao;
+import com.granzonamarciana.dao.EdicionDao;
+import com.granzonamarciana.dao.GalaDao;
+import com.granzonamarciana.dao.NoticiaDao;
+import com.granzonamarciana.dao.PuntuacionDao;
+import com.granzonamarciana.dao.SolicitudDao;
 
 @Database(entities = {
-        Administrador.class,
-        Concursante.class,
-        Espectador.class,
+        Usuario.class,    // Entidad única para Admin, Concursante y Espectador
         Edicion.class,
         Gala.class,
         Noticia.class,
@@ -36,19 +37,18 @@ public abstract class DatabaseHelper extends RoomDatabase {
 
     public static synchronized DatabaseHelper getInstance(Context c) {
         if (instanciaBD == null) {
+            // Nombre de la base de datos igual al proyecto
             instanciaBD = Room.databaseBuilder(c.getApplicationContext(),
                             DatabaseHelper.class, "granzonamarciana")
-                    .fallbackToDestructiveMigration()
-                    .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration() // Estilo maestro
+                    .allowMainThreadQueries()         // Permite consultas rápidas en el hilo principal
                     .build();
         }
         return instanciaBD;
     }
 
-    // Métodos abstractos para los DAOs (nombres exactos)
-    public abstract AdministradorDao administradorDao();
-    public abstract ConcursanteDao concursanteDao();
-    public abstract EspectadorDao espectadorDao();
+    // Métodos abstractos para acceder a los DAOs
+    public abstract UsuarioDao usuarioDao();
     public abstract EdicionDao edicionDao();
     public abstract GalaDao galaDao();
     public abstract NoticiaDao noticiaDao();

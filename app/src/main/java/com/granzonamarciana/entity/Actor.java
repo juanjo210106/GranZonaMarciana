@@ -1,5 +1,7 @@
 package com.granzonamarciana.entity;
 
+import java.time.LocalDate;
+
 public abstract class Actor extends DomainEntity {
     private String username;
     private String password;
@@ -24,6 +26,9 @@ public abstract class Actor extends DomainEntity {
         this.correo = correo;
         this.telefono = telefono;
         this.urlImagen = urlImagen;
+    }
+
+    public Actor(String dni, String nombre, String apellido1, String apellido2, String telefono, String correo, String poblacion, String provincia, LocalDate fechaNacimiento, String password, TipoRol rol) {
     }
 
     // Getters y Setters
