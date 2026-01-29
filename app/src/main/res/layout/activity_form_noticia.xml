@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvHeaderNoticia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo_crear_noticia"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_titulo_noticia"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etCabeceraNoticia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_titulo_noticia" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/label_cuerpo_noticia"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etCuerpoNoticia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:hint="@string/hint_cuerpo_noticia"
+        android:inputType="textMultiLine"
+        android:lines="5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="URL de la Imagen"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etUrlImagenNoticia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="https://ejemplo.com/imagen.jpg"
+        android:inputType="textUri" />
+
+    <Button
+        android:id="@+id/btnGuardarNoticia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_guardar_noticia"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#01488e" />
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_volver"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@android:color/darker_gray" />
+
+</LinearLayout>

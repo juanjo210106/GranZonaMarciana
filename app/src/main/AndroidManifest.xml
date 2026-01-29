@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GranZonaMarciana">
         <activity
+            android:name=".activity.FormNoticia"
+            android:exported="false" />
+        <activity
             android:name=".activity.ListNoticia"
             android:exported="false" />
         <activity
