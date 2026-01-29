@@ -27,6 +27,8 @@
 
     <string name="concurso_ejemplo">La Cárcel de los Gemelos</string>
     <string name="fecha_ejemplo">Inicio: 01/01/2026 - Fin: 30/03/2026</string>
+    <string name="ejemplo_noticia">La Gran Final</string>
+    <string name="ejemplo_cuerpo_noticia">Los finalistas viajarán a Marte el próximo lunes...</string>
 
     <string name="titulo_form_edicion">Gestión de Edición</string>
     <string name="hint_fecha_inicio">Fecha de Inicio (dd/MM/yyyy)</string>
@@ -44,11 +46,9 @@
     <string name="hint_fecha_gala">Fecha de Gala (dd/MM/yyyy HH:mm)</string>
     <string name="msg_gala_fuera_rango">La fecha de la gala debe estar dentro del periodo de la edición</string>
 
-    <string name="titulo_form_gala">Gestión de Gala</string>
     <string name="titulo_crear_gala">Crear Gala</string>
     <string name="titulo_editar_gala">Editar Gala</string>
     <string name="label_fecha_gala">Fecha y Hora de realización</string>
-    <string name="hint_fecha_gala">dd/MM/yyyy HH:mm</string>
     <string name="btn_guardar_gala">Guardar Gala</string>
 
     <string name="error_fecha_vacia">Completa la fecha y hora</string>
@@ -56,4 +56,22 @@
     <string name="error_formato_fecha">Error en el formato de fecha</string>
     <string name="msg_gala_creada">Gala creada con éxito</string>
     <string name="msg_gala_actualizada">Gala actualizada con éxito</string>
+
+    <string name="btn_crear_noticia">Crear Noticia</string>
+    <string name="msg_sin_noticias">No hay noticias para esta edición</string>
+    <string name="txt_titulo_noticia">Título de la Noticia</string>
+    <string name="label_cuerpo_noticia">Contenido</string>
+    <string name="hint_titulo_noticia">Escribe el titular...</string>
+    <string name="hint_cuerpo_noticia">Escribe el cuerpo de la noticia...</string>
+
+    <string name="titulo_form_noticia">Gestión de Noticia</string>
+    <string name="titulo_crear_noticia">Publicar Noticia</string>
+    <string name="titulo_editar_noticia">Editar Noticia</string>
+    <string name="btn_guardar_noticia">Guardar Noticia</string>
+
+    <string name="error_noticia_vacia">El título y el cuerpo son obligatorios</string>
+    <string name="msg_noticia_creada">Noticia publicada con éxito</string>
+    <string name="msg_noticia_actualizada">Noticia actualizada con éxito</string>
+
+
 </resources>
