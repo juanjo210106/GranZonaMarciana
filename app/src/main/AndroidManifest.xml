@@ -14,6 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GranZonaMarciana">
         <activity
+            android:name=".activity.ListPuntuacion"
+            android:exported="false" />
+        <activity
+            android:name=".activity.FormPuntuacion"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ListGalaVotable"
+            android:exported="false" />
+        <activity
             android:name=".activity.FormSolicitud"
             android:exported="false" />
         <activity

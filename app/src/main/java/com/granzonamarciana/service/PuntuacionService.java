@@ -5,26 +5,37 @@ import androidx.lifecycle.LiveData;
 import com.granzonamarciana.dao.PuntuacionDao;
 import com.granzonamarciana.database.DatabaseHelper;
 import com.granzonamarciana.entity.Puntuacion;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class PuntuacionService {
-    private PuntuacionDao puntuacionDao;
+
+    private final PuntuacionDao puntuacionDao;
+    private final ExecutorService executor;
 
     public PuntuacionService(Context context) {
         DatabaseHelper db = DatabaseHelper.getInstance(context);
         puntuacionDao = db.puntuacionDao();
+        // Usamos Executor al estilo maestro para operaciones en segundo plano
+        this.executor = Executors.newSingleThreadExecutor();
     }
 
-    public void votar(final Puntuacion puntuacion) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                puntuacionDao.insertarPuntuacion(puntuacion);
-            }
-        }).start();
+    // Cambiado de 'votar' a 'insertarPuntuacion' para coincidir con la actividad
+    public void insertarPuntuacion(final Puntuacion puntuacion) {
+        executor.execute(() -> puntuacionDao.insertarPuntuacion(puntuacion));
     }
 
-    // Para saber si YO (Espectador) ya he votado a este concursante en esta gala
-    public LiveData<Puntuacion> miVoto(int idEspectador, int idGala, int idConcursante) {
+    public LiveData<List<Puntuacion>> listarPuntuaciones() {
+        return puntuacionDao.listarPuntuaciones();
+    }
+
+    public LiveData<List<Puntuacion>> listarPuntuacionesPorEspectador(int idEspectador) {
+        return puntuacionDao.listarPuntuacionesPorEspectador(idEspectador);
+    }
+
+    // Para saber si el Espectador ya ha votado
+    public LiveData<Puntuacion> buscarVoto(int idEspectador, int idGala, int idConcursante) {
         return puntuacionDao.buscarVoto(idEspectador, idGala, idConcursante);
     }
 
