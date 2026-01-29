@@ -27,4 +27,12 @@
 
     <string name="concurso_ejemplo">La Cárcel de los Gemelos</string>
     <string name="fecha_ejemplo">Inicio: 01/01/2026 - Fin: 30/03/2026</string>
+
+    <string name="titulo_form_edicion">Gestión de Edición</string>
+    <string name="hint_fecha_inicio">Fecha de Inicio (dd/MM/yyyy)</string>
+    <string name="hint_fecha_fin">Fecha de Fin (dd/MM/yyyy)</string>
+    <string name="hint_max_participantes">Nº Máx. Participantes</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="error_fechas">La fecha de fin debe ser posterior a la de inicio</string>
+
 </resources>
