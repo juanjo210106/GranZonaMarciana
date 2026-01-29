@@ -1,107 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".activity.RegistroActivity">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:text="@string/titulo_registro"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="20dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Registro de Usuario"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginBottom="20dp"
-                />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_tipo_registro"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
 
-            <TextView
+        <RadioGroup
+            android:id="@+id/rgRol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp" >
+
+            <RadioButton
+                android:id="@+id/rbConcursante"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="´Quiero registrarme como:"
-                android:textStyle="bold"
-                />
+                android:checked="true"
+                android:layout_marginEnd="16dp"
+                android:text="@string/rb_concursante" />
 
-            <RadioGroup
-                android:id="@+id/rgRol"
-                android:layout_width="match_parent"
+            <RadioButton
+                android:id="@+id/rbEspectador"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="16dp" >
+                android:text="@string/rb_espectador" />
+        </RadioGroup>
 
-                <RadioButton
-                    android:id="@+id/rbConcursante"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:layout_marginEnd="16dp"
-                    android:text="Concursante" />
+        <EditText
+            android:id="@+id/etNombreUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_username" />
 
-                <RadioButton
-                    android:id="@+id/rbEspectador"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Espectador" />
-            </RadioGroup>
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"/>
 
-            <EditText
-                android:id="@+id/etNombreUsuario"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nombre de Usuario (Login)" />
+        <EditText
+            android:id="@+id/etNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_nombre"
+            android:inputType="textCapWords"/>
 
-            <EditText
-                android:id="@+id/etPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Contraseña"
-                android:inputType="textPassword"/>
+        <EditText
+            android:id="@+id/etApellido1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_apellido1"
+            android:inputType="textCapWords"/>
 
-            <EditText
-                android:id="@+id/etNombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nombre Real" />
+        <EditText
+            android:id="@+id/etApellido2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_apellido2"
+            android:inputType="textCapWords"/>
 
-            <EditText
-                android:id="@+id/etApellido1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Primer Apellido" />
+        <EditText
+            android:id="@+id/etCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="@string/hint_email"/>
 
-            <EditText
-                android:id="@+id/etApellido2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Segundo Apellido"
-                 />
+        <EditText
+            android:id="@+id/etTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="@string/hint_telefono"/>
 
-            <EditText
-                android:id="@+id/etCorreo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="Correo Electrónico"/>
+        <Button
+            android:id="@+id/btnVolver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_volver"
+            android:backgroundTint="@android:color/darker_gray"
+            android:layout_marginTop="20dp"/>
 
-            <EditText
-                android:id="@+id/etTelefono"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="phone"
-                android:hint="Teléfono"/>
+        <Button
+            android:id="@+id/btnGuardarRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_registrarse"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#01488e"/>
 
-            <Button
-                android:id="@+id/btnGuardarRegistro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Registrarse"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="#01488e"/>
-
-        </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
+</ScrollView>

@@ -7,11 +7,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.granzonamarciana.R;
 import com.granzonamarciana.entity.Concursante;
@@ -26,7 +22,7 @@ public class RegistroActivity extends AppCompatActivity {
 
     private EditText etUsername, etPassword, etNombre, etApellido1, etApellido2, etCorreo, etTelefono;
     private RadioGroup rgRol;
-    private Button btnGuardar;
+    private Button btnGuardar, btnVolver; // Añadido btnVolver
 
     // Servicios
     private ConcursanteService concursanteService;
@@ -52,11 +48,20 @@ public class RegistroActivity extends AppCompatActivity {
         etTelefono = findViewById(R.id.etTelefono);
         rgRol = findViewById(R.id.rgRol);
         btnGuardar = findViewById(R.id.btnGuardarRegistro);
+        btnVolver = findViewById(R.id.btnVolver); // Vinculamos el botón Volver
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 registrarUsuario();
+            }
+        });
+
+        // Funcionalidad del botón Volver
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

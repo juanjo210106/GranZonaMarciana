@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">Gran Zona Marciana</string>
+
+    <string name="btn_volver">Volver</string>
+    <string name="txt_inicio">Inicio</string>
+    <string name="txt_fin">Fin</string>
+
+    <string name="btn_crear_edicion">Crear Edición</string>
+    <string name="msg_sin_ediciones">No hay ediciones disponibles</string>
+    <string name="txt_titulo_edicion">Edición</string>
+    <string name="txt_max_participantes">Max. Participantes</string>
+
+    <string name="titulo_registro">Registro de Usuario</string>
+    <string name="label_tipo_registro">Quiero registrarme como:</string>
+    <string name="rb_concursante">Concursante</string>
+    <string name="rb_espectador">Espectador</string>
+    <string name="hint_username">Nombre de Usuario (Login)</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="hint_nombre">Nombre Real</string>
+    <string name="hint_apellido1">Primer Apellido</string>
+    <string name="hint_apellido2">Segundo Apellido</string>
+    <string name="hint_email">Correo Electrónico</string>
+    <string name="hint_telefono">Teléfono</string>
+    <string name="btn_registrarse">Registrarse</string>
+    <string name="error_campos_vacios">Por favor, completa todos los campos obligatorios</string>
+    <string name="msg_registro_exito">Usuario registrado con éxito</string>
+
+    <string name="concurso_ejemplo">La Cárcel de los Gemelos</string>
+    <string name="fecha_ejemplo">Inicio: 01/01/2026 - Fin: 30/03/2026</string>
 </resources>
