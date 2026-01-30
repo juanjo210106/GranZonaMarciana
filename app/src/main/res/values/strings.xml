@@ -8,7 +8,7 @@
 
     <string name="hint_username">Nombre de Usuario</string>
     <string name="btn_login">Identificarse</string>
-    <string name="btn_registrarse">Registrarse</string>
+    <string name="btn_registrarse">¿Aún no tienes una cuenta?</string>
 
     <string name="txt_panel_control">Panel de Control</string>
     <string name="txt_administracion_label">ADMINISTRACIÓN</string>

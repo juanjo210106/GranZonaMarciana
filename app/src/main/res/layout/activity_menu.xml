@@ -1,150 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_fondo">
-    android:padding="16dp">
+    android:background="@color/color_fondo"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="280dp"
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/tvBienvenido"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
+        android:layout_marginTop="25dp"
         android:text="@string/txt_panel_control"
         android:textColor="@color/black"
         android:textSize="26sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo" />
+        android:textStyle="bold" />
 
     <ScrollView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnCerrarSesion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvBienvenido">
+        android:layout_weight="1"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnVerNoticias"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_ver_noticias"
+                android:layout_marginBottom="8dp"
                 android:padding="18dp"
+                android:text="@string/btn_ver_noticias"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:backgroundTint="@color/color_principal"
                 app:cornerRadius="16dp"
                 app:icon="@android:drawable/ic_menu_today"
-                app:iconTint="@color/black"
-                android:layout_marginBottom="8dp"/>
+                app:iconTint="@color/black" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnInscribirse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:padding="18dp"
+                android:text="Inscribirse"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/color_principal"
+                app:cornerRadius="16dp"
+                app:icon="@android:drawable/ic_menu_edit"
+                app:iconTint="@color/black" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnVotarGalas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_votar_galas"
+                android:layout_marginBottom="8dp"
                 android:padding="18dp"
+                android:text="@string/btn_votar_galas"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:backgroundTint="@color/color_principal"
                 app:cornerRadius="16dp"
                 app:icon="@android:drawable/btn_star_big_on"
-                app:iconTint="@color/black"
-                android:layout_marginBottom="8dp"/>
+                app:iconTint="@color/black" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEditarPerfil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/titulo_editar_perfil"
+                android:layout_marginBottom="24dp"
                 android:padding="18dp"
+                android:text="@string/titulo_editar_perfil"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:backgroundTint="@color/color_principal"
                 app:cornerRadius="16dp"
                 app:icon="@android:drawable/ic_menu_myplaces"
-                app:iconTint="@color/black"
-                android:layout_marginBottom="24dp"/>
+                app:iconTint="@color/black" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#D1D1D1"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="16dp"
+                android:background="#D1D1D1" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_administracion_label"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:textColor="#757575"
+                android:layout_marginStart="4dp"
                 android:layout_marginBottom="12dp"
-                android:layout_marginStart="4dp"/>
+                android:text="@string/txt_administracion_label"
+                android:textColor="#757575"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnGestionarEdiciones"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_gestionar_ediciones"
+                android:layout_marginBottom="8dp"
                 android:padding="18dp"
+                android:text="@string/btn_gestionar_ediciones"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:backgroundTint="@color/color_principal"
                 app:cornerRadius="16dp"
                 app:icon="@android:drawable/ic_menu_agenda"
-                app:iconTint="@color/black"
-                android:layout_marginBottom="8dp"/>
+                app:iconTint="@color/black" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGestionarSolicitudes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:padding="18dp"
+                android:text="Gestionar Solicitudes"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/color_principal"
+                app:cornerRadius="16dp"
+                app:icon="@android:drawable/ic_menu_help"
+                app:iconTint="@color/black" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnUsuarios"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_usuarios_lista"
+                android:layout_marginBottom="8dp"
                 android:padding="18dp"
+                android:text="@string/btn_usuarios_lista"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:backgroundTint="@color/color_principal"
                 app:cornerRadius="16dp"
-                app:icon="@android:drawable/ic_menu_allfriends"
-                app:iconTint="@color/black"
-                android:layout_marginBottom="8dp"/>
+                app:icon="@android:drawable/ic_menu_info_details"
+                app:iconTint="@color/black" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCrearAdmin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_crear_admin"
+                android:layout_marginBottom="8dp"
                 android:padding="18dp"
+                android:text="@string/btn_crear_admin"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:backgroundTint="@color/color_principal"
                 app:cornerRadius="16dp"
                 app:icon="@android:drawable/ic_menu_add"
-                app:iconTint="@color/black"
-                android:layout_marginBottom="8dp"/>
+                app:iconTint="@color/black" />
 
         </LinearLayout>
     </ScrollView>
@@ -159,7 +180,6 @@
         app:backgroundTint="#D32F2F"
         app:cornerRadius="12dp"
         app:icon="@android:drawable/ic_lock_power_off"
-        app:iconTint="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:iconTint="@android:color/white" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
