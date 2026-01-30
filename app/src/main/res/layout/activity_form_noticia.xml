@@ -4,12 +4,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
-
+    <ImageView
+        android:id="@+id/logoSolicitud"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="Gran Zona Marciana"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="50dp" />
     <TextView
         android:id="@+id/tvHeaderNoticia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/titulo_crear_noticia"
+        android:textColor="@color/color_principal_oscuro"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -62,8 +70,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_guardar_noticia"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#01488e" />
+        android:textColor="@color/black"
+        android:backgroundTint="@color/color_principal"
+        android:layout_marginTop="20dp" />
 
     <Button
         android:id="@+id/btnVolver"

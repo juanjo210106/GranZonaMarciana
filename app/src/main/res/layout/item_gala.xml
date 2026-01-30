@@ -13,7 +13,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@android:drawable/ic_menu_today"
-        app:tint="@color/design_default_color_primary"
+        app:tint="@color/color_principal_oscuro"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

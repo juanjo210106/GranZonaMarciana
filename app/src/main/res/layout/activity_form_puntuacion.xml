@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/logoSolicitud"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="Gran Zona Marciana"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="50dp" />
 
     <TextView
         android:id="@+id/tvTituloVoto"
@@ -13,18 +23,16 @@
         android:text="Emitir Puntuación"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#01488e"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textColor="@color/color_principal_oscuro"
+        android:layout_marginBottom="24dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilIdConcursante"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:hint="ID del Concursante"
-        app:boxBackgroundMode="outline"
-        app:layout_constraintTop_toBottomOf="@id/tvTituloVoto">
+        android:layout_marginBottom="16dp"
+        app:boxBackgroundMode="outline">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etIdConcursanteVoto"
@@ -37,10 +45,9 @@
         android:id="@+id/tilValorPuntos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:hint="Puntuación (Ej: 1-10)"
-        app:boxBackgroundMode="outline"
-        app:layout_constraintTop_toBottomOf="@id/tilIdConcursante">
+        android:layout_marginBottom="24dp"
+        app:boxBackgroundMode="outline">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etValorVoto"
@@ -53,9 +60,9 @@
         android:id="@+id/btnGuardarVoto"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="32dp"
         android:text="Guardar Puntuación"
-        app:cornerRadius="12dp"
-        app:layout_constraintTop_toBottomOf="@id/tilValorPuntos" />
+        android:textColor="@color/black"
+        android:backgroundTint="@color/color_principal"
+        app:cornerRadius="12dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

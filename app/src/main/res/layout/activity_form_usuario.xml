@@ -12,7 +12,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,6 +26,7 @@
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:textColor="@color/color_principal_oscuro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo" />
@@ -156,6 +157,8 @@
         android:layout_height="60dp"
         android:layout_marginEnd="8dp"
         android:text="Guardar"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/color_principal"
         app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnVolver"

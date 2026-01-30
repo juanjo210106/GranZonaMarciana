@@ -12,7 +12,7 @@
         android:text="Puntos: 0"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="#01488e" />
+        android:textColor="@color/color_principal_oscuro" />
 
     <TextView
         android:id="@+id/tvDetalleVoto"

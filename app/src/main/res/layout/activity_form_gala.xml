@@ -5,11 +5,21 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <ImageView
+        android:id="@+id/logoSolicitud"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="Gran Zona Marciana"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="50dp" />
+
     <TextView
         android:id="@+id/tvHeaderGala"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/titulo_crear_gala"
+        android:textColor="@color/color_principal_oscuro"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -32,10 +42,11 @@
     <Button
         android:id="@+id/btnGuardarGala"
         android:layout_width="match_parent"
+        android:textColor="@color/black"
         android:layout_height="wrap_content"
         android:text="@string/btn_guardar_gala"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#01488e" />
+        android:backgroundTint="@color/color_principal" />
 
     <Button
         android:id="@+id/btnVolver"
