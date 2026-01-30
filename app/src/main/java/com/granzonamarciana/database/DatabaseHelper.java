@@ -1,36 +1,42 @@
 package com.granzonamarciana.database;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.granzonamarciana.entity.Usuario;
 import com.granzonamarciana.entity.Administrador;
-import com.granzonamarciana.entity.Concursante; // Añadido
-import com.granzonamarciana.entity.Espectador;   // Añadido
+import com.granzonamarciana.entity.Concursante;
+import com.granzonamarciana.entity.Espectador;
 import com.granzonamarciana.entity.Edicion;
 import com.granzonamarciana.entity.Gala;
 import com.granzonamarciana.entity.Noticia;
 import com.granzonamarciana.entity.Puntuacion;
 import com.granzonamarciana.entity.Solicitud;
+import com.granzonamarciana.entity.TipoRol;
 
 import com.granzonamarciana.dao.UsuarioDao;
 import com.granzonamarciana.dao.AdministradorDao;
-import com.granzonamarciana.dao.ConcursanteDao; // Añadido
-import com.granzonamarciana.dao.EspectadorDao;  // Añadido
+import com.granzonamarciana.dao.ConcursanteDao;
+import com.granzonamarciana.dao.EspectadorDao;
 import com.granzonamarciana.dao.EdicionDao;
 import com.granzonamarciana.dao.GalaDao;
 import com.granzonamarciana.dao.NoticiaDao;
 import com.granzonamarciana.dao.PuntuacionDao;
 import com.granzonamarciana.dao.SolicitudDao;
 
+import org.mindrot.jbcrypt.BCrypt;
+import java.util.concurrent.Executors;
+
 @Database(entities = {
         Usuario.class,
         Administrador.class,
-        Concursante.class,   // 1. Registrar entidad Concursante
-        Espectador.class,    // 2. Registrar entidad Espectador
+        Concursante.class,
+        Espectador.class,
         Edicion.class,
         Gala.class,
         Noticia.class,
@@ -48,6 +54,33 @@ public abstract class DatabaseHelper extends RoomDatabase {
                             DatabaseHelper.class, "granzonamarciana")
                     .fallbackToDestructiveMigration()
                     .allowMainThreadQueries()
+                    .addCallback(new RoomDatabase.Callback() {
+                        @Override
+                        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                            super.onCreate(db);
+                            // Precarga del Administrador Inicial (admin / admin123)
+                            Executors.newSingleThreadExecutor().execute(() -> {
+                                // Encriptamos la contraseña "admin123"
+                                String passHash = BCrypt.hashpw("admin123", BCrypt.gensalt());
+
+                                // Creamos el objeto administrador
+                                Usuario adminInicial = new Usuario(
+                                        "admin",
+                                        passHash,
+                                        TipoRol.ADMINISTRADOR,
+                                        "Admin",
+                                        "Principal",
+                                        "Sistema",
+                                        "admin@granzona.com",
+                                        "600000000",
+                                        "" // URL imagen vacía
+                                );
+
+                                // Insertamos a través del DAO de Usuario para que el Login lo detecte
+                                instanciaBD.usuarioDao().insertarUsuario(adminInicial);
+                            });
+                        }
+                    })
                     .build();
         }
         return instanciaBD;
@@ -56,8 +89,8 @@ public abstract class DatabaseHelper extends RoomDatabase {
     // Métodos abstractos para acceder a los DAOs
     public abstract UsuarioDao usuarioDao();
     public abstract AdministradorDao administradorDao();
-    public abstract ConcursanteDao concursanteDao(); // 3. Añadir este método para ConcursanteService
-    public abstract EspectadorDao espectadorDao();   // 4. Añadir este método para EspectadorService
+    public abstract ConcursanteDao concursanteDao();
+    public abstract EspectadorDao espectadorDao();
     public abstract EdicionDao edicionDao();
     public abstract GalaDao galaDao();
     public abstract NoticiaDao noticiaDao();
