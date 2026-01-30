@@ -153,4 +153,16 @@ public class Menu extends AppCompatActivity {
             startActivity(intent);
         });
     }
+
+    private void botonCrearAdmin() {
+        Button btn = findViewById(R.id.btnCrearAdmin);
+        if (!rol.equals(TipoRol.ADMINISTRADOR.toString())) {
+            btn.setVisibility(View.GONE);
+        } else {
+            btn.setVisibility(View.VISIBLE);
+            btn.setOnClickListener(v -> {
+                startActivity(new Intent(Menu.this, FormAdmin.class));
+            });
+        }
+    }
 }

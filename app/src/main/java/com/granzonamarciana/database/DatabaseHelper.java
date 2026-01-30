@@ -42,7 +42,7 @@ import java.util.concurrent.Executors;
         Noticia.class,
         Puntuacion.class,
         Solicitud.class
-}, version = 1)
+}, version = 4)
 @TypeConverters({LocalDateConverter.class, LocalDateTimeConverter.class, EstadoSolicitudConverter.class})
 public abstract class DatabaseHelper extends RoomDatabase {
 

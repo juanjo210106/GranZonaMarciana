@@ -101,6 +101,16 @@
                 android:layout_marginBottom="8dp"/>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCrearAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Crear Nuevo Administrador"
+                android:padding="20dp"
+                app:cornerRadius="16dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#01488e"/>
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEditarPerfil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
