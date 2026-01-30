@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="@color/color_fondo">
 
     <ImageView
         android:id="@+id/logoSolicitud"
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
-        android:contentDescription="Gran Zona Marciana"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/logo"
         android:layout_marginBottom="50dp" />
 
@@ -20,7 +21,7 @@
         android:id="@+id/tvTituloVoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Emitir Puntuación"
+        android:text="@string/titulo_emitir_puntuacion"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/color_principal_oscuro"
@@ -30,7 +31,7 @@
         android:id="@+id/tilIdConcursante"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="ID del Concursante"
+        android:hint="@string/hint_id_concursante"
         android:layout_marginBottom="16dp"
         app:boxBackgroundMode="outline">
 
@@ -45,7 +46,7 @@
         android:id="@+id/tilValorPuntos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Puntuación (Ej: 1-10)"
+        android:hint="@string/hint_puntuacion_rango"
         android:layout_marginBottom="24dp"
         app:boxBackgroundMode="outline">
 
@@ -60,7 +61,7 @@
         android:id="@+id/btnGuardarVoto"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Guardar Puntuación"
+        android:text="@string/btn_guardar_puntuacion"
         android:textColor="@color/black"
         android:backgroundTint="@color/color_principal"
         app:cornerRadius="12dp" />

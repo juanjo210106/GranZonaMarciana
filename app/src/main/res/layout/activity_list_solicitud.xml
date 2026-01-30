@@ -1,61 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/color_fondo">
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="254dp"
         android:layout_height="100dp"
-        android:contentDescription="Logo"
-        android:src="@drawable/logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/tvSinSolicitudes"
-        android:layout_width="0dp"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="No hay solicitudes de inscripción pendientes"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/darker_gray"
-        android:gravity="center"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/logo"
-        app:layout_constraintBottom_toTopOf="@id/btnVolverSolicitud"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <ListView
-        android:id="@+id/lvSolicitudes"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:divider="#01488e"
-        android:dividerHeight="1dp"
-        app:layout_constraintBottom_toTopOf="@id/btnVolverSolicitud"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo" />
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/tvSinSolicitudes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/msg_sin_solicitudes"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/darker_gray"
+            android:gravity="center"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/lvSolicitudes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/color_principal_oscuro"
+            android:dividerHeight="1dp" />
+    </FrameLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnVolverSolicitud"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Volver al Menú"
+        android:text="@string/btn_volver_menu"
         android:textColor="@android:color/black"
         android:backgroundTint="@color/color_principal"
-        app:cornerRadius="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textAllCaps="false"
+        app:cornerRadius="12dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

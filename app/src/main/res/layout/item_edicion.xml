@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="horizontal"
     android:padding="12dp"
+    android:gravity="center_vertical"
     android:background="?attr/selectableItemBackground">
 
     <ImageView
@@ -15,47 +16,41 @@
         android:layout_marginEnd="12dp"
         android:src="@android:drawable/ic_menu_agenda"
         android:contentDescription="@string/app_name"
-        app:tint="@color/color_principal_oscuro"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvFechas"
-        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@color/color_principal_oscuro" />
 
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvTituloEdicion"
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        tools:text="@string/concurso_ejemplo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imgEdicion"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvFechas"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="@android:color/darker_gray"
-        android:layout_marginTop="4dp"
-        tools:text="@string/fecha_ejemplo"
-        app:layout_constraintTop_toBottomOf="@id/tvTituloEdicion"
-        app:layout_constraintStart_toEndOf="@id/imgEdicion"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/tvTituloEdicion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            tools:text="@string/concurso_ejemplo" />
 
-    <TextView
-        android:id="@+id/tvParticipantes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textStyle="italic"
-        android:textColor="@android:color/holo_blue_dark"
-        android:layout_marginTop="4dp"
-        tools:text="Max. Participantes: 20"
-        app:layout_constraintStart_toEndOf="@id/imgEdicion"
-        app:layout_constraintTop_toBottomOf="@id/tvFechas"/>
+        <TextView
+            android:id="@+id/tvFechas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            tools:text="@string/fecha_ejemplo" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvParticipantes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:textColor="@android:color/holo_blue_dark"
+            tools:text="Max. Participantes: 20" />
+
+    </LinearLayout>
+
+</LinearLayout>

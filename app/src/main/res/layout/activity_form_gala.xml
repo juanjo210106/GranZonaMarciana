@@ -3,14 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/color_fondo">
 
     <ImageView
         android:id="@+id/logoSolicitud"
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
-        android:contentDescription="Gran Zona Marciana"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/logo"
         android:layout_marginBottom="50dp" />
 

@@ -1,57 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/color_fondo">
 
     <ImageView
         android:id="@+id/logoSolicitud"
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:contentDescription="Gran Zona Marciana"
-        android:src="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/tvTituloInscripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:text="Solicitud de Inscripción"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:text="@string/titulo_inscripcion"
         android:textColor="@color/color_principal_oscuro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoSolicitud" />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvInstrucciones"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="Cuéntanos por qué quieres ser el próximo concursante de Gran Zona Marciana"
-        android:textColor="@android:color/darker_gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTituloInscripcion" />
+        android:text="@string/txt_instrucciones_inscripcion"
+        android:textColor="@android:color/darker_gray" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilDescripcionInscripcion"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:hint="Escribe aquí tu propuesta..."
-        app:boxBackgroundMode="outline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvInstrucciones">
+        android:hint="@string/hint_propuesta_inscripcion"
+        app:boxBackgroundMode="outline">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etDescripcionInscripcion"
@@ -61,29 +51,30 @@
             android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnEnviarSolicitud"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
-        android:text="Enviar Solicitud"
+        android:text="@string/btn_enviar_solicitud"
+        android:textAllCaps="false"
         android:backgroundTint="@color/color_principal"
         android:textColor="@color/black"
-        app:cornerRadius="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilDescripcionInscripcion" />
+        app:cornerRadius="12dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCancelarSolicitud"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="8dp"
-        android:text="Cancelar"
+        android:text="@string/btn_cancelar"
+        android:textAllCaps="false"
         android:backgroundTint="@android:color/black"
-        app:cornerRadius="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnEnviarSolicitud" />
+        app:cornerRadius="12dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

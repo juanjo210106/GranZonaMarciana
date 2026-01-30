@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -9,7 +10,7 @@
         android:id="@+id/tvValorPuntuacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Puntos: 0"
+        tools:text="@string/ejemplo_puntos"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/color_principal_oscuro" />
@@ -18,7 +19,7 @@
         android:id="@+id/tvDetalleVoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gala ID: 0 | Concursante ID: 0"
+        tools:text="@string/ejemplo_detalle_voto"
         android:textSize="14sp"
         android:layout_marginTop="4dp"
         android:textColor="@android:color/darker_gray" />

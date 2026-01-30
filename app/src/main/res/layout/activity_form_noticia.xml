@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/color_fondo">
     <ImageView
         android:id="@+id/logoSolicitud"
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
-        android:contentDescription="Gran Zona Marciana"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/logo"
         android:layout_marginBottom="50dp" />
     <TextView
@@ -55,14 +56,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="URL de la Imagen"
+        android:text="@string/label_url_imagen"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/etUrlImagenNoticia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="https://ejemplo.com/imagen.jpg"
+        android:hint="@string/hint_url_imagen"
         android:inputType="textUri" />
 
     <Button

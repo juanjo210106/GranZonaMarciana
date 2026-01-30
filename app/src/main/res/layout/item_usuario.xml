@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -9,6 +10,7 @@
         android:id="@+id/tvNombreActor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        tools:text="@string/ejemplo_nombre_completo"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@android:color/black" />
@@ -17,6 +19,7 @@
         android:id="@+id/tvUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        tools:text="@string/ejemplo_username_lista"
         android:textSize="14sp"
         android:textColor="@color/color_principal_oscuro" />
 
@@ -24,12 +27,14 @@
         android:id="@+id/tvCorreo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        tools:text="@string/ejemplo_correo_lista"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/tvTelefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        tools:text="@string/ejemplo_telefono_lista"
         android:textSize="14sp"
         android:textColor="@android:color/darker_gray" />
 

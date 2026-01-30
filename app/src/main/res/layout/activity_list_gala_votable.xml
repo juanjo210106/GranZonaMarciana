@@ -1,54 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/color_fondo">
 
     <ImageView
         android:id="@+id/logoVotacionGalas"
         android:layout_width="254dp"
         android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
         android:src="@drawable/logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:contentDescription="@string/app_name" />
 
     <TextView
         android:id="@+id/tvSeleccionaGala"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selecciona una Gala para votar"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/color_principal_oscuro"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/logoVotacionGalas"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="@string/txt_selecciona_gala"
+        android:textColor="@color/color_principal_oscuro"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/lvGalasVotables"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:divider="#01488e"
-        android:dividerHeight="1dp"
-        app:layout_constraintBottom_toTopOf="@id/btnVolverSeleccion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSeleccionaGala" />
+        android:divider="@color/color_principal_oscuro"
+        android:dividerHeight="1dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnVolverSeleccion"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Volver al Menú"
-        android:textColor="@color/black"
         android:backgroundTint="@color/color_principal"
-        app:cornerRadius="12dp"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:text="@string/btn_volver_menu"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:cornerRadius="12dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
