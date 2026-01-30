@@ -41,6 +41,7 @@ public class Menu extends AppCompatActivity {
         botonUsuarios();
         botonEditarPerfil();
         botonCerrarSesion();
+        botonCrearAdmin();
     }
 
     @Override
@@ -154,6 +155,7 @@ public class Menu extends AppCompatActivity {
         });
     }
 
+    // Formulario para crear nuevos administradores
     private void botonCrearAdmin() {
         Button btn = findViewById(R.id.btnCrearAdmin);
         if (!rol.equals(TipoRol.ADMINISTRADOR.toString())) {
