@@ -916,39 +916,6 @@ res/
 
 ---
 
-## 🚀 Roadmap
-
-### ✅ Versión 1.0 (Actual - Enero 2026)
-- [x] Sistema de autenticación con BCrypt
-- [x] Gestión completa de roles (Admin, Concursante, Espectador)
-- [x] CRUD completo de todas las entidades
-- [x] Sistema de votación con validaciones
-- [x] Gestión de solicitudes de inscripción
-- [x] Interfaz Material Design 3
-- [x] Base de datos SQLite con Room
-- [x] Modo offline completo
-
-### 🔜 Versión 2.0 (Q2 2026)
-- [ ] Backend con API REST (Node.js + Express)
-- [ ] Sincronización en la nube (Firebase)
-- [ ] Notificaciones push para eventos importantes
-- [ ] Chat en tiempo real entre usuarios
-- [ ] Estadísticas avanzadas con gráficos
-- [ ] Modo oscuro
-- [ ] Soporte multi-idioma (ES, EN, FR)
-- [ ] Exportación de datos a PDF/Excel
-
-### 🎯 Versión 3.0 (Q4 2026)
-- [ ] Streaming de galas en vivo
-- [ ] Sistema de recompensas y gamificación
-- [ ] Integración con redes sociales (compartir resultados)
-- [ ] Versión optimizada para tablets
-- [ ] Módulo de análisis de datos con IA
-- [ ] Sistema de moderación automática
-- [ ] Marketplace de contenido exclusivo
-
----
-
 ## 🤝 Contribuir
 
 ¡Las contribuciones son bienvenidas! Este proyecto está abierto a mejoras y nuevas funcionalidades.
