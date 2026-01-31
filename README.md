@@ -6,13 +6,17 @@
 ![API](https://img.shields.io/badge/API-26%2B-brightgreen.svg)
 ![Language](https://img.shields.io/badge/Language-Java-orange.svg)
 ![Database](https://img.shields.io/badge/Database-SQLite%20%7C%20Room-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Ecentia](https://img.shields.io/badge/Powered%20by-Ecentia-8B5CF6?style=flat&logo=android)
 
 **Sistema de Gestión Integral para Reality Shows**
 
 *Una aplicación móvil nativa para Android diseñada para centralizar la interacción entre la producción, los participantes y la audiencia de un reality show*
 
 [Características](#-características-principales) • [Tecnologías](#-stack-tecnológico) • [Capturas](#-capturas-de-pantalla) • [Instalación](#-instalación) • [Uso](#-guía-de-uso)
+
+---
+
+**Desarrollado por el equipo Ecentia**
 
 </div>
 
@@ -32,6 +36,7 @@
 - [Estructura del Proyecto](#-estructura-del-proyecto)
 - [Contribuir](#-contribuir)
 - [Licencia](#-licencia)
+- [Equipo](#-equipo-de-desarrollo)
 
 ---
 
@@ -122,20 +127,22 @@ ConstraintLayout: 2.1.4 📐
 <table>
 <tr>
 <td width="50%" align="center">
-<img src="screenshots/activity_main.png" width="300px" alt="Pantalla de Login"/>
-<br/>
-<br/>
-<b>🔑 Pantalla de Login</b>
-<br/>
-<i>Autenticación segura con validación y encriptación BCrypt</i>
+
+![Pantalla de Login](screenshots/activity_main.png)
+
+**🔑 Pantalla de Login**
+
+*Autenticación segura con validación y encriptación BCrypt*
+
 </td>
 <td width="50%" align="center">
-<img src="screenshots/activity_form_usuario.png" width="300px" alt="Registro de Usuario"/>
-<br/>
-<br/>
-<b>📝 Registro de Usuario</b>
-<br/>
-<i>Formulario completo con validaciones en tiempo real</i>
+
+![Registro de Usuario](screenshots/activity_form_usuario.png)
+
+**📝 Registro de Usuario**
+
+*Formulario completo con validaciones en tiempo real*
+
 </td>
 </tr>
 </table>
@@ -147,12 +154,13 @@ ConstraintLayout: 2.1.4 📐
 <table>
 <tr>
 <td align="center">
-<img src="screenshots/activity_menu.png" width="300px" alt="Menú Principal"/>
-<br/>
-<br/>
-<b>🎛️ Menú Principal</b>
-<br/>
-<i>Dashboard adaptado según rol del usuario con accesos directos</i>
+
+![Menú Principal](screenshots/activity_menu.png)
+
+**🎛️ Menú Principal**
+
+*Dashboard adaptado según rol del usuario con accesos directos*
+
 </td>
 </tr>
 </table>
@@ -164,20 +172,22 @@ ConstraintLayout: 2.1.4 📐
 <table>
 <tr>
 <td width="50%" align="center">
-<img src="screenshots/activity_form_noticia.png" width="300px" alt="Crear Noticia"/>
-<br/>
-<br/>
-<b>📢 Crear/Editar Noticia</b>
-<br/>
-<i>Publicación de noticias con soporte para imágenes externas</i>
+
+![Crear Noticia](screenshots/activity_form_noticia.png)
+
+**📢 Crear/Editar Noticia**
+
+*Publicación de noticias con soporte para imágenes externas*
+
 </td>
 <td width="50%" align="center">
-<img src="screenshots/activity_form_edicion.png" width="300px" alt="Gestión de Ediciones"/>
-<br/>
-<br/>
-<b>📅 Gestionar Edición</b>
-<br/>
-<i>Control de temporadas del reality con validación de fechas</i>
+
+![Gestión de Ediciones](screenshots/activity_form_edicion.png)
+
+**📅 Gestionar Edición**
+
+*Control de temporadas del reality con validación de fechas*
+
 </td>
 </tr>
 </table>
@@ -189,12 +199,13 @@ ConstraintLayout: 2.1.4 📐
 <table>
 <tr>
 <td align="center">
-<img src="screenshots/activity_form_gala.png" width="300px" alt="Programar Gala"/>
-<br/>
-<br/>
-<b>🎊 Programar Gala</b>
-<br/>
-<i>Creación de eventos con selector de fecha/hora interactivo</i>
+
+![Programar Gala](screenshots/activity_form_gala.png)
+
+**🎊 Programar Gala**
+
+*Creación de eventos con selector de fecha/hora interactivo*
+
 </td>
 </tr>
 </table>
@@ -206,25 +217,27 @@ ConstraintLayout: 2.1.4 📐
 <table>
 <tr>
 <td width="50%" align="center">
-<img src="screenshots/activity_form_puntuacion.png" width="300px" alt="Emitir Voto"/>
-<br/>
-<br/>
-<b>⭐ Emitir Puntuación</b>
-<br/>
-<i>Sistema de votación con validaciones anti-duplicados</i>
+
+![Emitir Voto](screenshots/activity_form_puntuacion.png)
+
+**⭐ Emitir Puntuación**
+
+*Sistema de votación con validaciones anti-duplicados*
+
 </td>
 <td width="50%" align="center">
-<img src="screenshots/activity_form_solicitud.png" width="300px" alt="Solicitud de Inscripción"/>
-<br/>
-<br/>
-<b>📝 Solicitud de Inscripción</b>
-<br/>
-<i>Formulario para aspirantes a concursantes del reality</i>
+
+![Solicitud de Inscripción](screenshots/activity_form_solicitud.png)
+
+**📝 Solicitud de Inscripción**
+
+*Formulario para aspirantes a concursantes del reality*
+
 </td>
 </tr>
 </table>
 
-> 💡 **Nota**: Para ver las capturas de pantalla en tu repositorio local, colócalas en la carpeta `screenshots/` en la raíz del proyecto.
+> 💡 **Nota**: Para visualizar correctamente las capturas, asegúrate de que las imágenes estén en la carpeta `screenshots/` en la raíz del proyecto.
 
 </div>
 
@@ -416,7 +429,7 @@ public class UsuarioService {
 #### 1️⃣ Clonar el Repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/gran-zona-marciana.git
+git clone https://github.com/ecentia/gran-zona-marciana.git
 cd gran-zona-marciana
 ```
 
@@ -893,10 +906,10 @@ res/
 <b>Negro</b><br/>
 ⚫ Texto Principal
 </td>
-<td width="20%" align="center" style="background-color: #FFFFFF; padding: 20px; border: 1px solid #ccc;">
-<b>#FFFFFF</b><br/>
-<b>Blanco</b><br/>
-⚪ Fondos
+<td width="20%" align="center" style="background-color: #8B5CF6; color: white; padding: 20px;">
+<b>#8B5CF6</b><br/>
+<b>Ecentia Purple</b><br/>
+🟣 Morado Corporativo
 </td>
 </tr>
 </table>
@@ -977,7 +990,7 @@ Contribuye con código
 
 2. 🌿 **Crea una rama** para tu feature
    ```bash
-   git checkout -b feature/AmazingFeature
+   git checkout -b feature/NuevaFuncionalidad
    ```
 
 3. 💾 **Commit** tus cambios
@@ -987,7 +1000,7 @@ Contribuye con código
 
 4. 📤 **Push** a la rama
    ```bash
-   git push origin feature/AmazingFeature
+   git push origin feature/NuevaFuncionalidad
    ```
 
 5. 🔀 Abre un **Pull Request**
@@ -1015,86 +1028,58 @@ Style:  Cambios de formato (sin afectar código)
 Test:   Añadir o modificar tests
 ```
 
-#### Pull Requests
-- ✅ Descripción clara del cambio
-- ✅ Screenshots si afecta la UI
-- ✅ Referencia a Issues relacionados
-- ✅ Tests actualizados (si aplica)
-
-### 🐛 Reportar Bugs
-
-Al reportar un bug, incluye:
-
-- **Descripción clara**: ¿Qué está pasando?
-- **Pasos para reproducir**: ¿Cómo llegar al bug?
-- **Comportamiento esperado**: ¿Qué debería pasar?
-- **Comportamiento actual**: ¿Qué está pasando realmente?
-- **Screenshots**: Si es visual
-- **Entorno**:
-  - Versión de Android
-  - Modelo de dispositivo
-  - Versión de la app
-
 ---
 
 ## 📄 Licencia
 
 Este proyecto está bajo la **Licencia MIT** - ver el archivo [LICENSE](LICENSE) para más detalles.
 
-```
-MIT License
-
-Copyright (c) 2026 Gran Zona Marciana
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
 ---
 
-## 📞 Contacto y Enlaces
+## 👨‍💻 Equipo de Desarrollo
 
-### 👨‍💻 Desarrollador
+<div align="center">
+
+### 🟣 Grupo Ecentia
+
+**Gran Zona Marciana** ha sido desarrollado por el talentoso equipo de Ecentia:
 
 <table>
 <tr>
-<td width="50%">
-
-**Información de Contacto**
-
-- 📧 **Email**: tu.email@example.com
-- 🐙 **GitHub**: [@tu-usuario](https://github.com/tu-usuario)
-- 💼 **LinkedIn**: [Tu Perfil](https://linkedin.com/in/tu-perfil)
-- 🐦 **Twitter**: [@tu_usuario](https://twitter.com/tu_usuario)
-
+<td align="center" width="33%">
+<img src="https://img.icons8.com/color/96/000000/user-male-circle--v1.png" width="80px"/>
+<br />
+<b>Rafa Lázaro</b>
+<br />
+<sub>Developer</sub>
 </td>
-<td width="50%">
-
-**Enlaces del Proyecto**
-
-- 📦 **Repo**: [GitHub](https://github.com/tu-usuario/gran-zona-marciana)
-- 🐛 **Issues**: [Reportar Bug](https://github.com/tu-usuario/gran-zona-marciana/issues)
-- 📖 **Wiki**: [Documentación](https://github.com/tu-usuario/gran-zona-marciana/wiki)
-- 💬 **Discussions**: [Foro](https://github.com/tu-usuario/gran-zona-marciana/discussions)
-
+<td align="center" width="33%">
+<img src="https://img.icons8.com/color/96/000000/user-male-circle--v1.png" width="80px"/>
+<br />
+<b>José Manuel Jiménez</b>
+<br />
+<sub>Developer</sub>
+</td>
+<td align="center" width="33%">
+<img src="https://img.icons8.com/color/96/000000/user-male-circle--v1.png" width="80px"/>
+<br />
+<b>Juan José Gamero</b>
+<br />
+<sub>Developer</sub>
 </td>
 </tr>
 </table>
+
+---
+
+### 🔗 Enlaces del Proyecto
+
+- 📦 **Repositorio**: [GitHub](https://github.com/ecentia/gran-zona-marciana)
+- 🐛 **Issues**: [Reportar Problemas](https://github.com/ecentia/gran-zona-marciana/issues)
+- 📖 **Wiki**: [Documentación Completa](https://github.com/ecentia/gran-zona-marciana/wiki)
+- 💬 **Discussions**: [Foro de la Comunidad](https://github.com/ecentia/gran-zona-marciana/discussions)
+
+</div>
 
 ---
 
@@ -1163,25 +1148,23 @@ Si este proyecto te ha sido útil, considera:
 
 <div align="center">
 
-## ✨ Hecho con ❤️ y ☕
+## ✨ Desarrollado con ❤️ por Ecentia
 
-**Desarrollado por el Grupo Ecentia - Rafael Lázaro, Juan José Gamero y José Manuel Jiménez**
+<br/>
 
 ![Powered by Android](https://img.shields.io/badge/Powered%20by-Android-green?style=for-the-badge&logo=android&logoColor=white)
 ![Built with Java](https://img.shields.io/badge/Built%20with-Java-orange?style=for-the-badge&logo=java&logoColor=white)
 ![Database SQLite](https://img.shields.io/badge/Database-SQLite-blue?style=for-the-badge&logo=sqlite&logoColor=white)
 ![UI Material](https://img.shields.io/badge/UI-Material%20Design-purple?style=for-the-badge&logo=material-design&logoColor=white)
 
----
+<br/>
+
+### 🟣 Powered by Ecentia
+
+<br/>
 
 ### 🌟 ¿Te gusta el proyecto? ¡Dale una estrella! ⭐
 
 [⬆ Volver arriba](#-gran-zona-marciana)
 
-</div>
-
----
-
-<div align="center">
-<sub>© 2026 Gran Zona Marciana. Todos los derechos reservados.</sub>
 </div>
