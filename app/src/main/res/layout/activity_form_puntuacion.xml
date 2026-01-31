@@ -21,6 +21,7 @@
         android:id="@+id/tvTituloVoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="@string/titulo_emitir_puntuacion"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -29,32 +30,50 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilIdConcursante"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_id_concursante"
         android:layout_marginBottom="16dp"
-        app:boxBackgroundMode="outline">
+        app:boxStrokeColor="@color/color_principal"
+        app:hintTextColor="@color/color_principal_oscuro"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etIdConcursanteVoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:inputType="number"
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilValorPuntos"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_puntuacion_rango"
         android:layout_marginBottom="24dp"
-        app:boxBackgroundMode="outline">
+        app:boxStrokeColor="@color/color_principal"
+        app:hintTextColor="@color/color_principal_oscuro"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etValorVoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:inputType="number"
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
@@ -62,8 +81,11 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="@string/btn_guardar_puntuacion"
+        android:textAllCaps="false"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:backgroundTint="@color/color_principal"
-        app:cornerRadius="12dp" />
+        app:cornerRadius="16dp"
+        app:elevation="2dp" />
 
 </LinearLayout>

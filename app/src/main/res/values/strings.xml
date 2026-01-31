@@ -71,7 +71,7 @@
     <string name="label_apellido1">Primer Apellido</string>
     <string name="label_apellido2">Segundo Apellido</string>
     <string name="label_telefono">Teléfono</string>
-    <string name="label_correo">Correo Electrónico (Login)</string>
+    <string name="label_correo">Correo Electrónico</string>
     <string name="label_poblacion">Población</string>
     <string name="label_provincia">Provincia</string>
     <string name="label_fecha_nac">Fecha de Nacimiento</string>
