@@ -18,6 +18,9 @@ import java.util.List;
 
 public class GalaAdapter extends ArrayAdapter<Gala> {
 
+    // Formato de fecha para mostrar al usuario (ej: 31/01/2026 21:00)
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
     public GalaAdapter(@NonNull Context context, @NonNull List<Gala> galas) {
         super(context, 0, galas);
     }
@@ -31,14 +34,16 @@ public class GalaAdapter extends ArrayAdapter<Gala> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_gala, parent, false);
         }
 
-        TextView tvTituloGala = convertView.findViewById(R.id.tvTituloGala);
-        TextView tvFechaHoraGala = convertView.findViewById(R.id.tvFechaHoraGala);
+        TextView tvNombre = convertView.findViewById(R.id.tvNombreGala);
+        TextView tvFecha = convertView.findViewById(R.id.tvFechaGala);
 
         if (gala != null) {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+            // Usamos el string "Gala #ID"
+            tvNombre.setText(getContext().getString(R.string.txt_gala_numero, gala.getId()));
 
-            tvTituloGala.setText(getContext().getString(R.string.txt_titulo_gala) + " #" + gala.getId());
-            tvFechaHoraGala.setText(gala.getFechaRealizacion().format(formatter));
+            // Formateamos la fecha y usamos el string "Realización: ..."
+            String fechaFormateada = gala.getFechaRealizacion().format(formatter);
+            tvFecha.setText(getContext().getString(R.string.txt_fecha_realizacion, fechaFormateada));
         }
 
         return convertView;

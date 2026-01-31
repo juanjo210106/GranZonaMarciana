@@ -43,4 +43,8 @@ public class PuntuacionService {
     public LiveData<Float> obtenerMedia(int idConcursante, int idGala) {
         return puntuacionDao.obtenerMediaPuntuacion(idConcursante, idGala);
     }
+
+    public LiveData<List<Puntuacion>> listarPuntuacionesPorGala(int idGala) {
+        return puntuacionDao.listarPuntuacionesPorGala(idGala);
+    }
 }

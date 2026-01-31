@@ -48,4 +48,9 @@ public class Edicion extends DomainEntity {
     public void setMaxParticipantes(int maxParticipantes) {
         this.maxParticipantes = maxParticipantes;
     }
+
+    @Override
+    public String toString() {
+        return "Edición " + this.getId();
+    }
 }

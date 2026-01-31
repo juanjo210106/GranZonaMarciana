@@ -34,5 +34,9 @@ public class ConcursanteService {
     public LiveData<List<Concursante>> listarTodos() {
         return concursanteDao.listarConcursantes();
     }
+
+    public LiveData<Concursante> buscarPorId(int id) {
+        return concursanteDao.buscarConcursantePorId(id);
+    }
 }
 

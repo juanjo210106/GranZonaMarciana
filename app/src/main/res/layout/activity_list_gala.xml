@@ -3,74 +3,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_fondo"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/color_fondo">
+    android:padding="24dp">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/logo" />
+    <TextView
+        android:id="@+id/tvTituloGalas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo_lista_galas"
+        android:textColor="@color/color_principal_oscuro"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"/>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp">
-
-        <TextView
-            android:id="@+id/tvSinGalas"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/msg_sin_galas"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/darker_gray"
-            android:gravity="center"
-            android:visibility="gone" />
+        android:layout_weight="1">
 
         <ListView
             android:id="@+id/lvGalas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@android:color/darker_gray"
-            android:dividerHeight="1dp"
-            android:paddingBottom="8dp" />
+            android:divider="@android:color/transparent"
+            android:dividerHeight="12dp" />
+
+        <TextView
+            android:id="@+id/tvSinGalas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/msg_lista_sin_galas"
+            android:textColor="@android:color/darker_gray"
+            android:visibility="gone" />
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:orientation="horizontal">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCrearGala"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:text="@string/btn_crear_gala"
-            android:textAllCaps="false"
-            android:backgroundTint="@color/color_principal"
-            android:textColor="@android:color/black"
-            app:cornerRadius="12dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnVolver"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:text="@string/btn_volver"
             android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:backgroundTint="@android:color/black"
-            app:cornerRadius="12dp" />
-    </LinearLayout>
+            app:backgroundTint="@android:color/black"
+            app:cornerRadius="16dp" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCrearGala"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="@string/btn_crear_gala"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/color_principal"
+            app:cornerRadius="16dp" />
+    </LinearLayout>
 </LinearLayout>

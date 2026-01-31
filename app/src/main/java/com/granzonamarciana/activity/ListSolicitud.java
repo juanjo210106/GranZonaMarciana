@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.granzonamarciana.R;
 import com.granzonamarciana.adapter.SolicitudAdapter;
@@ -69,20 +70,36 @@ public class ListSolicitud extends AppCompatActivity {
             return;
         }
 
-        new AlertDialog.Builder(this)
+        // Creamos el diálogo usando el estilo que definimos en themes.xml
+        AlertDialog dialog = new AlertDialog.Builder(this, R.style.Theme_GranZonaMarciana_Dialog)
                 .setTitle("Gestionar Solicitud")
                 .setMessage("¿Deseas aceptar a este usuario como concursante?")
-                .setPositiveButton("ACEPTAR", (dialog, which) -> {
+                .setPositiveButton("ACEPTAR", (d, which) -> {
                     s.setEstado(EstadoSolicitud.ACEPTADA);
                     solicitudService.actualizarSolicitud(s);
                     Toast.makeText(this, "Solicitud Aceptada", Toast.LENGTH_SHORT).show();
                 })
-                .setNegativeButton("RECHAZAR", (dialog, which) -> {
+                .setNegativeButton("RECHAZAR", (d, which) -> {
                     s.setEstado(EstadoSolicitud.RECHAZADA);
                     solicitudService.actualizarSolicitud(s);
                     Toast.makeText(this, "Solicitud Rechazada", Toast.LENGTH_SHORT).show();
                 })
                 .setNeutralButton("CANCELAR", null)
-                .show();
+                .create();
+
+        // Mostramos el diálogo
+        dialog.show();
+
+        int colorVerdeOscuro = ContextCompat.getColor(this, R.color.color_principal_oscuro);
+
+        if (dialog.getButton(AlertDialog.BUTTON_POSITIVE) != null) {
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorVerdeOscuro);
+        }
+        if (dialog.getButton(AlertDialog.BUTTON_NEGATIVE) != null) {
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(colorVerdeOscuro);
+        }
+        if (dialog.getButton(AlertDialog.BUTTON_NEUTRAL) != null) {
+            dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(colorVerdeOscuro);
+        }
     }
 }

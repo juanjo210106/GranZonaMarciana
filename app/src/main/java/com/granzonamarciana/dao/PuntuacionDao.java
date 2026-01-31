@@ -23,6 +23,10 @@ public interface PuntuacionDao {
     @Query("SELECT * FROM puntuacion WHERE idEspectador = :idEspectador")
     LiveData<List<Puntuacion>> listarPuntuacionesPorEspectador(int idEspectador);
 
+    // Ver todos los votos de una gala concreta
+    @Query("SELECT * FROM puntuacion WHERE idGala = :idGala")
+    LiveData<List<Puntuacion>> listarPuntuacionesPorGala(int idGala);
+
     // Comprobamos si un espectador ya votó a este concursante en esta gala
     @Query("SELECT * FROM puntuacion WHERE idEspectador = :idEspectador AND idGala = :idGala AND idConcursante = :idConcursante")
     LiveData<Puntuacion> buscarVoto(int idEspectador, int idGala, int idConcursante);

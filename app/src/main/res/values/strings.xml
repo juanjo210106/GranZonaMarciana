@@ -20,6 +20,8 @@
     <string name="btn_cerrar_sesion">Cerrar Sesión</string>
     <string name="btn_volver_menu">Volver al Menú</string>
 
+    <string name="label_selecciona_edicion">Selecciona la Edición:</string>
+    <string name="hint_selecciona_edicion">Elige una edición...</string>
     <string name="btn_crear_edicion">Crear Edición</string>
     <string name="msg_sin_ediciones">No hay ediciones disponibles</string>
     <string name="txt_titulo_edicion">Edición</string>
@@ -30,6 +32,8 @@
     <string name="hint_max_participantes">Nº Máx. Participantes</string>
     <string name="error_fechas">La fecha de fin debe ser posterior a la de inicio</string>
 
+    <string name="titulo_lista_galas">Gestión de Galas</string>
+    <string name="msg_lista_sin_galas">No hay galas registradas</string>
     <string name="btn_crear_gala">Crear Gala</string>
     <string name="msg_sin_galas">No hay galas programadas para esta edición</string>
     <string name="txt_titulo_gala">Gala</string>
@@ -111,4 +115,22 @@
     <string name="ejemplo_username_lista">elpatica</string>
     <string name="ejemplo_correo_lista">paticasiempreoperativo@gmail.com</string>
     <string name="ejemplo_telefono_lista">+34 600 000 000</string>
+
+    <string name="txt_hola">Hola, %1$s</string>
+    <string name="btn_inscribirse">Inscribirse</string>
+    <string name="btn_mis_puntuaciones_corto">Mis Puntuaciones</string>
+    <string name="btn_gestionar_galas">Gestionar Galas</string>
+    <string name="btn_gestionar_solicitudes">Gestionar Solicitudes</string>
+
+    <string name="titulo_puntuaciones_admin">Resultados de la Gala</string>
+    <string name="label_media_total">Media de la Gala: %1$.2f</string>
+    <string name="label_voto_detalle">Concursante ID: %1$d | Espectador ID: %2$d</string>
+    <string name="txt_puntos">Puntos: %1$d</string>
+
+    <string name="txt_gala_numero">Gala #%1$d</string>
+    <string name="txt_fecha_realizacion">Realización: %1$s</string>
+
+    <string name="titulo_elegir_edicion">Elige una Edición</string>
+    <string name="error_edicion_finalizada">Esta edición ya ha finalizado, no puedes inscribirte.</string>
+    <string name="txt_clic_inscribirse">Pulsa para inscribirte</string>
 </resources>

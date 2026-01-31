@@ -3,18 +3,17 @@ package com.granzonamarciana.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 
 import com.google.android.material.button.MaterialButton;
 import com.granzonamarciana.R;
 import com.granzonamarciana.adapter.GalaAdapter;
-import com.granzonamarciana.entity.Edicion;
 import com.granzonamarciana.entity.Gala;
+import com.granzonamarciana.entity.TipoRol;
 import com.granzonamarciana.service.GalaService;
 
 import java.util.ArrayList;
@@ -24,69 +23,117 @@ public class ListGala extends AppCompatActivity {
 
     private GalaService galaService;
     private GalaAdapter galaAdapter;
-    private Edicion edicionActual;
+    private String rol;
+    private int idEdicionFiltro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_gala);
 
-        galaService = new GalaService(ListGala.this);
+        // 1. Inicializar servicios y datos de sesión
+        galaService = new GalaService(this);
+        rol = getSharedPreferences("granzonaUser", MODE_PRIVATE).getString("rol", "");
 
-        // Recuperamos la edición para saber qué galas mostrar
-        edicionActual = (Edicion) getIntent().getSerializableExtra("edicion");
+        // Comprobar si venimos filtrando por una edición específica
+        idEdicionFiltro = getIntent().getIntExtra("idEdicion", -1);
 
+        // 2. Referencias de la UI
         ListView lvGalas = findViewById(R.id.lvGalas);
         TextView tvSinGalas = findViewById(R.id.tvSinGalas);
+        TextView tvTitulo = findViewById(R.id.tvTituloGalas);
         MaterialButton btnCrearGala = findViewById(R.id.btnCrearGala);
         MaterialButton btnVolver = findViewById(R.id.btnVolver);
 
-        // Se muestra si no hay galas
+        // 3. Configurar el Adaptador
+        galaAdapter = new GalaAdapter(this, new ArrayList<>());
+        lvGalas.setAdapter(galaAdapter);
         lvGalas.setEmptyView(tvSinGalas);
 
-        galaAdapter = new GalaAdapter(ListGala.this, new ArrayList<>());
-        lvGalas.setAdapter(galaAdapter);
-
-        // Listar galas filtradas por la edición actual
-        if (edicionActual != null) {
-            galaService.listarGalasPorEdicion(edicionActual.getId()).observe(this, new Observer<List<Gala>>() {
-                @Override
-                public void onChanged(List<Gala> galas) {
-                    galaAdapter.clear();
-                    galaAdapter.addAll(galas);
-                    galaAdapter.notifyDataSetChanged();
-                }
-            });
+        // 4. Lógica de visibilidad para el botón "Añadir" (Solo Admin)
+        if (!rol.equals(TipoRol.ADMINISTRADOR.toString())) {
+            btnCrearGala.setVisibility(View.GONE);
         }
 
-        // Editar una gala existente
-        lvGalas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Gala galaSeleccionada = (Gala) parent.getItemAtPosition(position);
-                Intent i = new Intent(ListGala.this, FormGala.class);
-                i.putExtra("gala", galaSeleccionada);
-                i.putExtra("edicion", edicionActual); // Pasamos también la edición para validar fechas
-                startActivity(i);
-            }
+        // 5. Cargar Datos (Filtrados o Generales)
+        cargarDatos();
+
+        // 6. Evento de clic en la lista (Menú de opciones)
+        lvGalas.setOnItemClickListener((parent, view, position, id) -> {
+            Gala galaSeleccionada = (Gala) parent.getItemAtPosition(position);
+            mostrarMenuOpciones(galaSeleccionada);
         });
 
-        // Crear una nueva gala
-        btnCrearGala.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ListGala.this, FormGala.class);
-                i.putExtra("edicion", edicionActual); // Pasamos la edición para saber a cuál pertenece
-                startActivity(i);
-            }
+        // 7. Botones de acción
+        btnCrearGala.setOnClickListener(v -> {
+            Intent intent = new Intent(this, FormGala.class);
+            if (idEdicionFiltro != -1) intent.putExtra("idEdicion", idEdicionFiltro);
+            startActivity(intent);
         });
 
-        // Volver
-        btnVolver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        btnVolver.setOnClickListener(v -> finish());
+    }
+
+    private void cargarDatos() {
+        if (idEdicionFiltro != -1) {
+            // Listar galas de una edición concreta
+            galaService.listarGalasPorEdicion(idEdicionFiltro).observe(this, this::actualizarLista);
+        } else {
+            // Listar todas las galas del sistema
+            galaService.listarGalas().observe(this, this::actualizarLista);
+        }
+    }
+
+    private void actualizarLista(List<Gala> galas) {
+        galaAdapter.clear();
+        if (galas != null) {
+            galaAdapter.addAll(galas);
+        }
+        galaAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * Muestra un diálogo con opciones según el rol del usuario
+     */
+    private void mostrarMenuOpciones(Gala gala) {
+        List<String> opciones = new ArrayList<>();
+
+        // Definir opciones según ROL
+        if (rol.equals(TipoRol.ADMINISTRADOR.toString())) {
+            opciones.add("Editar Gala");
+            opciones.add("Ver Resultados Globales");
+        } else {
+            opciones.add("Ver Resultados de la Gala");
+        }
+
+        // Convertir lista a Array para el Diálogo
+        String[] opsArray = opciones.toArray(new String[0]);
+
+        new AlertDialog.Builder(this, R.style.Theme_GranZonaMarciana_Dialog)
+                .setTitle("Gala #" + gala.getId())
+                .setItems(opsArray, (dialog, which) -> {
+                    if (rol.equals(TipoRol.ADMINISTRADOR.toString())) {
+                        if (which == 0) {
+                            // Admin -> Editar
+                            Intent i = new Intent(this, FormGala.class);
+                            i.putExtra("gala", gala);
+                            startActivity(i);
+                        } else {
+                            // Admin -> Resultados
+                            verPuntuaciones(gala.getId());
+                        }
+                    } else {
+                        // Usuario Normal -> Solo tiene la opción "Ver Resultados" (pos 0)
+                        verPuntuaciones(gala.getId());
+                    }
+                })
+                .setNegativeButton(R.string.btn_cancelar, null)
+                .show();
+    }
+
+    private void verPuntuaciones(int idGala) {
+        Intent intent = new Intent(this, ListPuntuacion.class);
+        intent.putExtra("idGala", idGala);
+        startActivity(intent);
     }
 }

@@ -24,28 +24,30 @@ public class PuntuacionAdapter extends ArrayAdapter<Puntuacion> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        // 1. Obtener el objeto de datos para esta posición
+        Puntuacion puntuacion = getItem(position);
 
-        // 1. Obtener el objeto para esta posición
-        Puntuacion p = getItem(position);
-
-        // 2. Inflar el layout si no se está reciclando (Estilo Maestro)
+        // 2. Comprobar si una vista existente está siendo reutilizada, de lo contrario inflar la vista
         if (convertView == null) {
-            LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.item_puntuacion, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_puntuacion, parent, false);
         }
 
-        // 3. Vincular componentes del XML
+        // 3. Buscar las vistas para la población de datos
         TextView tvValor = convertView.findViewById(R.id.tvValorPuntuacion);
         TextView tvDetalle = convertView.findViewById(R.id.tvDetalleVoto);
 
-        // 4. Aplicar los datos de tu entidad
-        if (p != null) {
-            // USAMOS getValor() tal como está en tu entity
-            tvValor.setText("Puntuación: " + p.getValor());
+        // 4. Poblar los datos en las vistas usando los recursos de strings
+        if (puntuacion != null) {
+            // Usamos el string formateado "Puntos: %1$d"
+            tvValor.setText(getContext().getString(R.string.txt_puntos, puntuacion.getValor()));
 
-            // Mostramos los IDs relacionados
-            String detalle = "Gala: " + p.getIdGala() + " | Concursante: " + p.getIdConcursante();
-            tvDetalle.setText(detalle);
+            // Usamos el string formateado "Concursante ID: %1$d | Espectador ID: %2$d"
+            // Esto es muy útil para el Admin para rastrear quién votó
+            tvDetalle.setText(getContext().getString(
+                    R.string.label_voto_detalle,
+                    puntuacion.getIdConcursante(),
+                    puntuacion.getIdEspectador()
+            ));
         }
 
         return convertView;
