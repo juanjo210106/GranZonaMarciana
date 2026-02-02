@@ -90,6 +90,21 @@
             app:elevation="2dp" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnInvitado"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="12dp"
+            android:text="Entrar como Invitado"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:strokeColor="@color/color_principal"
+            app:strokeWidth="2dp"
+            app:cornerRadius="16dp" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCrearUsuario"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"

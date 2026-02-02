@@ -1,5 +1,6 @@
 package com.granzonamarciana.activity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.granzonamarciana.R;
 import com.granzonamarciana.entity.Noticia;
+import com.granzonamarciana.entity.TipoRol;
 import com.granzonamarciana.service.NoticiaService;
 
 import java.time.LocalDateTime;
@@ -18,70 +20,75 @@ import java.time.LocalDateTime;
 public class FormNoticia extends AppCompatActivity {
     private NoticiaService noticiaService;
     private Noticia noticiaExistente;
+    private String rolSesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_noticia);
 
-        noticiaService = new NoticiaService(FormNoticia.this);
+        noticiaService = new NoticiaService(this);
+
+        // Recuperar rol para seguridad
+        SharedPreferences prefs = getSharedPreferences("granzonaUser", MODE_PRIVATE);
+        rolSesion = prefs.getString("rol", "");
 
         EditText etCabecera = findViewById(R.id.etCabeceraNoticia);
         EditText etCuerpo = findViewById(R.id.etCuerpoNoticia);
         EditText etUrlImagen = findViewById(R.id.etUrlImagenNoticia);
         Button btnGuardar = findViewById(R.id.btnGuardarNoticia);
+        Button btnVolver = findViewById(R.id.btnVolver);
         TextView tvHeader = findViewById(R.id.tvHeaderNoticia);
 
-        // Se rellenan campos si es edición
         noticiaExistente = (Noticia) getIntent().getSerializableExtra("noticia");
+
+        // REQUISITO: Solo el Admin puede editar o guardar
+        boolean esAdmin = rolSesion.equals(TipoRol.ADMINISTRADOR.toString());
+
         if (noticiaExistente != null) {
             etCabecera.setText(noticiaExistente.getCabecera());
             etCuerpo.setText(noticiaExistente.getCuerpo());
             etUrlImagen.setText(noticiaExistente.getUrlImagen());
-            tvHeader.setText(getString(R.string.titulo_editar_noticia));
+            tvHeader.setText(esAdmin ? getString(R.string.titulo_editar_noticia) : "Detalle de Noticia");
+
+            // Si no es admin, bloqueamos edición (Modo Visualización de Detalle)
+            if (!esAdmin) {
+                etCabecera.setEnabled(false);
+                etCuerpo.setEnabled(false);
+                etUrlImagen.setEnabled(false);
+                btnGuardar.setVisibility(View.GONE);
+            }
+        } else if (!esAdmin) {
+            // Un no-admin no debería poder intentar crear una noticia
+            Toast.makeText(this, "Acceso denegado", Toast.LENGTH_SHORT).show();
+            finish();
         }
 
-        // Guardar o Actualizar
-        btnGuardar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String cabecera = etCabecera.getText().toString();
-                String cuerpo = etCuerpo.getText().toString();
-                String url = etUrlImagen.getText().toString();
+        btnGuardar.setOnClickListener(v -> {
+            String cabecera = etCabecera.getText().toString().trim();
+            String cuerpo = etCuerpo.getText().toString().trim();
+            String url = etUrlImagen.getText().toString().trim();
 
-                if (cabecera.isEmpty() || cuerpo.isEmpty()) {
-                    Toast.makeText(FormNoticia.this, getString(R.string.error_noticia_vacia), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (noticiaExistente != null) {
-                    noticiaExistente.setCabecera(cabecera);
-                    noticiaExistente.setCuerpo(cuerpo);
-                    noticiaExistente.setUrlImagen(url);
-                    noticiaService.actualizarNoticia(noticiaExistente);
-                    Toast.makeText(FormNoticia.this, getString(R.string.msg_noticia_actualizada), Toast.LENGTH_SHORT).show();
-                } else {
-                    Noticia nuevaNoticia = new Noticia(
-                            LocalDateTime.now(), // Fecha automática (Estilo maestro)
-                            cabecera,
-                            cuerpo,
-                            url
-                    );
-                    noticiaService.insertarNoticia(nuevaNoticia);
-                    Toast.makeText(FormNoticia.this, getString(R.string.msg_noticia_creada), Toast.LENGTH_SHORT).show();
-                }
-
-                finish(); // Volver al listado
+            if (cabecera.isEmpty() || cuerpo.isEmpty()) {
+                Toast.makeText(this, "Título y cuerpo obligatorios", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            if (noticiaExistente != null) {
+                noticiaExistente.setCabecera(cabecera);
+                noticiaExistente.setCuerpo(cuerpo);
+                noticiaExistente.setUrlImagen(url);
+                noticiaService.actualizarNoticia(noticiaExistente);
+                Toast.makeText(this, "Noticia actualizada", Toast.LENGTH_SHORT).show();
+            } else {
+                // RNF: La fecha se genera automáticamente al crear
+                Noticia nueva = new Noticia(LocalDateTime.now(), cabecera, cuerpo, url);
+                noticiaService.insertarNoticia(nueva);
+                Toast.makeText(this, "Noticia creada", Toast.LENGTH_SHORT).show();
+            }
+            finish();
         });
 
-        // Botón Volver
-        Button btnVolver = findViewById(R.id.btnVolver);
-        btnVolver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        btnVolver.setOnClickListener(v -> finish());
     }
 }

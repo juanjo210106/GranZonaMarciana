@@ -53,10 +53,10 @@ public class NoticiaAdapter extends ArrayAdapter<Noticia> {
         ImageView imgEliminar = convertView.findViewById(R.id.imgEliminarNoticia);
 
         if (noticia != null) {
-            tvTitulo.setText(noticia.getTitulo());
+            // CORRECCIÓN: Usar getCabecera() en lugar de getTitulo()
+            tvTitulo.setText(noticia.getCabecera());
             tvCuerpo.setText(noticia.getCuerpo());
 
-            // GESTIÓN DE PERMISOS: Solo el Admin ve el botón de eliminar
             if (rolUsuario.equals(TipoRol.ADMINISTRADOR.toString())) {
                 imgEliminar.setVisibility(View.VISIBLE);
                 imgEliminar.setOnClickListener(v -> {
