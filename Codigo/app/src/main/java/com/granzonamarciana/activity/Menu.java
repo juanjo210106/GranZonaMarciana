@@ -53,8 +53,8 @@ public class Menu extends AppCompatActivity {
         findViewById(R.id.btnVerNoticias).setOnClickListener(v ->
                 startActivity(new Intent(Menu.this, ListNoticia.class)));
 
-        // CAMBIO: Ver Ediciones - ahora visible para TODOS (reutilizamos btnInscribirse)
-        View btnVerEdiciones = findViewById(R.id.btnInscribirse);
+        // Ver Ediciones - visible para TODOS
+        View btnVerEdiciones = findViewById(R.id.btnVerEdiciones);
         if (btnVerEdiciones != null) {
             btnVerEdiciones.setVisibility(VISIBLE);
             btnVerEdiciones.setOnClickListener(v ->
@@ -67,11 +67,10 @@ public class Menu extends AppCompatActivity {
         // Editar perfil - solo para usuarios logueados
         configurarVisibilidad(R.id.btnEditarPerfil, visLogueado, FormUsuario.class);
 
-        // CAMBIO: Cerrar sesión - visible para TODOS (logueados e invitados)
+        // Cerrar sesión - visible para TODOS (logueados e invitados)
         configurarVisibilidad(R.id.btnCerrarSesion, VISIBLE, null);
 
-        // CAMBIO: Ver galas - visible para espectadores y concursantes (reutilizamos btnMisPuntuaciones para acceso)
-        // Pero agregamos lógica adicional aquí
+        // Ver mis puntuaciones - solo para usuarios logueados
         View btnMisPuntuaciones = findViewById(R.id.btnMisPuntuaciones);
         if (btnMisPuntuaciones != null) {
             if (estaLogueado) {
@@ -84,17 +83,25 @@ public class Menu extends AppCompatActivity {
         }
 
         // --- 3. ROLES ESPECÍFICOS ---
-        // CAMBIO: Espectador y Concursante pueden ver galas
+
+        // NUEVO: Botón Inscribirse en Edición - SOLO para CONCURSANTES
+        View btnInscribirse = findViewById(R.id.btnInscribirse);
+        if (btnInscribirse != null) {
+            if (esConcursante) {
+                btnInscribirse.setVisibility(VISIBLE);
+                btnInscribirse.setOnClickListener(v ->
+                        startActivity(new Intent(Menu.this, ListEdicionInscribible.class)));
+            } else {
+                btnInscribirse.setVisibility(GONE);
+            }
+        }
+
+        // MODIFICADO: Votar en Galas - SOLO para ESPECTADORES
         View btnVotar = findViewById(R.id.btnVotarGalas);
         if (btnVotar != null) {
             if (esEspectador) {
-                // Espectadores votan
                 btnVotar.setVisibility(VISIBLE);
                 btnVotar.setOnClickListener(v -> startActivity(new Intent(Menu.this, ListGalaVotable.class)));
-            } else if (esConcursante) {
-                // Concursantes ven galas pero no votan
-                btnVotar.setVisibility(VISIBLE);
-                btnVotar.setOnClickListener(v -> startActivity(new Intent(Menu.this, ListGala.class)));
             } else {
                 btnVotar.setVisibility(GONE);
             }
@@ -119,8 +126,8 @@ public class Menu extends AppCompatActivity {
         configurarVisibilidad(R.id.btnGestionarSolicitudes, visAdmin, ListSolicitud.class);
         configurarVisibilidad(R.id.btnUsuarios, visAdmin, ListUsuario.class);
 
-        // CAMBIO: Crear administradores - reutilizamos un botón o agregamos funcionalidad
-        // Para no crear nuevos botones, permitimos crear admin desde ListUsuario
+        // NUEVO: Botón Crear Administrador - SOLO para ADMIN
+        configurarVisibilidad(R.id.btnCrearAdmin, visAdmin, FormAdmin.class);
     }
 
     private void configurarVisibilidad(int idBtn, int visibilidad, Class<?> destino) {
@@ -148,7 +155,7 @@ public class Menu extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // CAMBIO: Actualizar nombre cuando se edite el perfil
+        // Actualizar nombre cuando se edite el perfil
         actualizarDatosSesion();
         configurarBotonesPorRol();
     }

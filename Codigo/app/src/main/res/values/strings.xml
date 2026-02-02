@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Gran Zona Marciana</string>
     <string name="btn_volver">Volver</string>
@@ -16,6 +17,7 @@
     <string name="btn_ver_ediciones">Ver Ediciones</string>
     <string name="btn_ver_galas">Ver Galas</string>
     <string name="btn_votar_galas">Votar en Galas</string>
+    <string name="btn_inscribirse_edicion">Inscribirse en Edición</string>
     <string name="btn_gestionar_ediciones">Gestionar Ediciones</string>
     <string name="btn_usuarios_lista">Gestionar Usuarios</string>
     <string name="btn_crear_admin">Crear Administrador</string>
