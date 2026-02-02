@@ -57,14 +57,16 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_puntuacion_rango"
+        android:hint="@string/hint_puntuacion_1_10"
         android:layout_marginBottom="24dp"
         app:boxStrokeColor="@color/color_principal"
         app:hintTextColor="@color/color_principal_oscuro"
         app:boxCornerRadiusTopStart="16dp"
         app:boxCornerRadiusTopEnd="16dp"
         app:boxCornerRadiusBottomStart="16dp"
-        app:boxCornerRadiusBottomEnd="16dp">
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:helperText="Introduce un valor entre 1 y 10"
+        app:helperTextEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etValorVoto"

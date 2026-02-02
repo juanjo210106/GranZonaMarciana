@@ -94,6 +94,7 @@
     <string name="titulo_emitir_puntuacion">Emitir Puntuación</string>
     <string name="hint_id_concursante">ID del Concursante</string>
     <string name="hint_puntuacion_rango">Puntuación (Ej: 1-10)</string>
+    <string name="hint_puntuacion_1_10">Puntuación (1-10)</string>
     <string name="btn_guardar_puntuacion">Guardar Puntuación</string>
     <string name="titulo_mis_puntuaciones">Mis Puntuaciones Enviadas</string>
     <string name="msg_sin_puntuaciones">Todavía no has emitido ninguna puntuación</string>

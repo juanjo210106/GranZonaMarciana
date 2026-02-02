@@ -28,7 +28,7 @@ public class FormSolicitud extends AppCompatActivity {
 
     private SolicitudService solicitudService;
     private ActorService actorService;
-    private EdicionService edicionService; // Necesario para RNF de cupos
+    private EdicionService edicionService;
 
     private TextInputEditText etMensaje;
     private TextView tvInstrucciones;
@@ -83,10 +83,7 @@ public class FormSolicitud extends AppCompatActivity {
 
         // 5. Listeners
         btnEnviar.setOnClickListener(v -> enviarNuevaSolicitud());
-
-        // RNF: Lógica de aprobación con control de cupo
         btnAprobar.setOnClickListener(v -> validarCupoYAprobar());
-
         btnRechazar.setOnClickListener(v -> actualizarEstadoSolicitud(EstadoSolicitud.RECHAZADA));
         btnCancelar.setOnClickListener(v -> finish());
     }
@@ -110,31 +107,45 @@ public class FormSolicitud extends AppCompatActivity {
     private void enviarNuevaSolicitud() {
         String mensaje = etMensaje.getText().toString().trim();
         if (TextUtils.isEmpty(mensaje)) {
-            Toast.makeText(this, "Escribe una descripción", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Escribe una descripción de por qué quieres participar", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        Solicitud s = new Solicitud();
-        s.setMensaje(mensaje);
-        s.setEstado(EstadoSolicitud.PENDIENTE);
-        s.setIdConcursante(idUsuarioSesion);
-        s.setIdEdicion(idEdicionRecibida);
+        // RNF: Verificar que el usuario no tenga ya una solicitud pendiente o aceptada para esta edición
+        solicitudService.buscarSolicitudDeUsuario(idUsuarioSesion, idEdicionRecibida).observe(this, new Observer<Solicitud>() {
+            @Override
+            public void onChanged(Solicitud solicitudExistente) {
+                solicitudService.buscarSolicitudDeUsuario(idUsuarioSesion, idEdicionRecibida).removeObserver(this);
 
-        solicitudService.insertarSolicitud(s);
-        Toast.makeText(this, "Solicitud enviada", Toast.LENGTH_SHORT).show();
-        finish();
+                if (solicitudExistente != null) {
+                    String estadoActual = solicitudExistente.getEstado().toString();
+                    Toast.makeText(FormSolicitud.this,
+                            "Ya tienes una solicitud para esta edición con estado: " + estadoActual,
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    // No hay solicitud previa, creamos una nueva
+                    Solicitud s = new Solicitud();
+                    s.setMensaje(mensaje);
+                    s.setEstado(EstadoSolicitud.PENDIENTE);
+                    s.setIdConcursante(idUsuarioSesion);
+                    s.setIdEdicion(idEdicionRecibida);
+
+                    solicitudService.insertarSolicitud(s);
+                    Toast.makeText(FormSolicitud.this, "Solicitud enviada correctamente. El administrador la revisará.", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        });
     }
 
-    // --- LÓGICA RNF: Control de Cupos ---
+    // --- LÓGICA RNF: Control de Cupos y Cancelación Automática ---
     private void validarCupoYAprobar() {
         if (solicitudCargada == null) return;
 
         // Paso 1: Obtener la Edición para saber el límite (maxParticipantes)
-        // NOTA: Verifica si tu método en EdicionService es 'buscarEdicionPorId' o 'buscarPorId'
         edicionService.buscarEdicionPorId(solicitudCargada.getIdEdicion()).observe(this, new Observer<Edicion>() {
             @Override
             public void onChanged(Edicion edicion) {
-                // Removemos observer para que no se ejecute de nuevo al cambiar datos
                 edicionService.buscarEdicionPorId(solicitudCargada.getIdEdicion()).removeObserver(this);
 
                 if (edicion != null) {
@@ -162,39 +173,49 @@ public class FormSolicitud extends AppCompatActivity {
                     }
                 }
 
-                // Verificamos si ya está lleno
+                // RNF: Verificamos si ya está lleno
                 if (aceptadas >= edicion.getMaxParticipantes()) {
-                    Toast.makeText(FormSolicitud.this, "Error: Cupo completo (" + edicion.getMaxParticipantes() + ")", Toast.LENGTH_LONG).show();
+                    Toast.makeText(FormSolicitud.this,
+                            "Error: Cupo completo (" + edicion.getMaxParticipantes() + " participantes). No se pueden aceptar más solicitudes.",
+                            Toast.LENGTH_LONG).show();
                 } else {
                     // Hay hueco: Aprobamos la actual
                     actualizarEstadoSolicitud(EstadoSolicitud.ACEPTADA);
 
-                    // RNF: Si al aceptar esta se llena el cupo, rechazamos el resto
-                    if (aceptadas + 1 == edicion.getMaxParticipantes()) {
+                    // RNF: Si al aceptar esta se llena el cupo, rechazamos automáticamente el resto
+                    if (aceptadas + 1 >= edicion.getMaxParticipantes()) {
                         rechazarRestantes(pendientes);
-                        Toast.makeText(FormSolicitud.this, "Cupo cerrado. Se rechazaron " + pendientes.size() + " solicitudes restantes.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(FormSolicitud.this,
+                                "Solicitud aprobada. Cupo completo: se han cancelado automáticamente " + pendientes.size() + " solicitudes pendientes.",
+                                Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(FormSolicitud.this,
+                                "Solicitud aprobada. Quedan " + (edicion.getMaxParticipantes() - aceptadas - 1) + " plazas disponibles.",
+                                Toast.LENGTH_SHORT).show();
                     }
+                    finish();
                 }
             }
         });
     }
 
+    // RNF: Cancelación automática de solicitudes pendientes cuando se llena el cupo
     private void rechazarRestantes(List<Solicitud> pendientes) {
         for (Solicitud s : pendientes) {
             s.setEstado(EstadoSolicitud.RECHAZADA);
             solicitudService.actualizarSolicitud(s);
         }
     }
-    // ------------------------------------
 
     private void actualizarEstadoSolicitud(EstadoSolicitud nuevoEstado) {
         if (solicitudCargada != null) {
             solicitudCargada.setEstado(nuevoEstado);
             solicitudService.actualizarSolicitud(solicitudCargada);
+
             if(nuevoEstado == EstadoSolicitud.RECHAZADA) {
                 Toast.makeText(this, "Solicitud rechazada", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Solicitud aprobada", Toast.LENGTH_SHORT).show();
+            } else if (nuevoEstado == EstadoSolicitud.ACEPTADA) {
+                Toast.makeText(this, "Solicitud aprobada correctamente", Toast.LENGTH_SHORT).show();
             }
             finish();
         }

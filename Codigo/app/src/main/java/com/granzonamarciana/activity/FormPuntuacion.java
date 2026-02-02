@@ -9,9 +9,11 @@ import androidx.lifecycle.Observer;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.granzonamarciana.R;
+import com.granzonamarciana.entity.Actor;
 import com.granzonamarciana.entity.Gala;
 import com.granzonamarciana.entity.Puntuacion;
-import com.granzonamarciana.service.ConcursanteService;
+import com.granzonamarciana.entity.TipoRol;
+import com.granzonamarciana.service.ActorService;
 import com.granzonamarciana.service.GalaService;
 import com.granzonamarciana.service.PuntuacionService;
 
@@ -20,8 +22,8 @@ import java.time.LocalDateTime;
 public class FormPuntuacion extends AppCompatActivity {
 
     private PuntuacionService puntuacionService;
-    private ConcursanteService concursanteService;
-    private GalaService galaService; // Necesario para validar fecha (RNF)
+    private ActorService actorService;
+    private GalaService galaService;
 
     private int idGala, idEspectador;
     private TextInputEditText etValor, etIdConcursante;
@@ -33,7 +35,7 @@ public class FormPuntuacion extends AppCompatActivity {
 
         // 1. Inicializar Servicios
         puntuacionService = new PuntuacionService(this);
-        concursanteService = new ConcursanteService(this);
+        actorService = new ActorService(this);
         galaService = new GalaService(this);
 
         // 2. Recuperar datos
@@ -65,29 +67,45 @@ public class FormPuntuacion extends AppCompatActivity {
             return;
         }
 
-        // RNF: Valor entre 1 y 5
-        if (valor < 1 || valor > 5) {
-            etValor.setError("La puntuación debe estar entre 1 y 5");
+        // RNF: Valor entre 1 y 10
+        if (valor < 1 || valor > 10) {
+            etValor.setError("La puntuación debe estar entre 1 y 10");
+            Toast.makeText(this, "La puntuación debe estar entre 1 y 10", Toast.LENGTH_LONG).show();
             return;
         }
 
-        int idConcursante = Integer.parseInt(idConcursanteStr);
+        int idConcursante;
+        try {
+            idConcursante = Integer.parseInt(idConcursanteStr);
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "El ID del concursante debe ser numérico", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Validamos paso a paso (Cadena de validaciones)
         validarExistenciaConcursante(valor, idConcursante);
     }
 
-    // Paso 1: ¿Existe el concursante?
+    // Paso 1: ¿Existe el concursante Y tiene rol CONCURSANTE?
     private void validarExistenciaConcursante(int valor, int idConcursante) {
-        concursanteService.buscarPorId(idConcursante).observe(this, concursante -> {
-            // No eliminamos observer aquí porque buscarPorId suele devolver un LiveData continuo,
-            // pero para una acción puntual como guardar, idealmente observaríamos una vez.
-            // En este flujo simple, asumimos que 'concursante' llega una vez.
+        actorService.buscarPorId(idConcursante).observe(this, new Observer<Actor>() {
+            @Override
+            public void onChanged(Actor actor) {
+                // Removemos el observer para que solo se ejecute una vez
+                actorService.buscarPorId(idConcursante).removeObserver(this);
 
-            if (concursante == null) {
-                Toast.makeText(this, "Error: El concursante no existe", Toast.LENGTH_SHORT).show();
-            } else {
-                validarFechaGala(valor, idConcursante);
+                if (actor == null) {
+                    Toast.makeText(FormPuntuacion.this,
+                            "Error: No existe ningún usuario con ID " + idConcursante,
+                            Toast.LENGTH_LONG).show();
+                } else if (actor.getRol() != TipoRol.CONCURSANTE) {
+                    Toast.makeText(FormPuntuacion.this,
+                            "Error: El usuario con ID " + idConcursante + " no es un concursante. Es un " + actor.getRol(),
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    // El actor existe y es concursante, continuamos
+                    validarFechaGala(valor, idConcursante);
+                }
             }
         });
     }
@@ -97,16 +115,30 @@ public class FormPuntuacion extends AppCompatActivity {
         galaService.buscarGalaPorId(idGala).observe(this, new Observer<Gala>() {
             @Override
             public void onChanged(Gala gala) {
-                galaService.buscarGalaPorId(idGala).removeObserver(this); // Stop observing
+                galaService.buscarGalaPorId(idGala).removeObserver(this);
 
                 if (gala == null) {
                     Toast.makeText(FormPuntuacion.this, "Error: Gala no encontrada", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
+                // RNF: Solo se puede votar en las 24 horas posteriores al inicio de la gala
                 LocalDateTime fechaLimite = gala.getFechaRealizacion().plusHours(24);
-                if (LocalDateTime.now().isAfter(fechaLimite)) {
-                    Toast.makeText(FormPuntuacion.this, "El periodo de votación (24h) ha finalizado.", Toast.LENGTH_LONG).show();
+                LocalDateTime ahora = LocalDateTime.now();
+
+                if (ahora.isBefore(gala.getFechaRealizacion())) {
+                    Toast.makeText(FormPuntuacion.this,
+                            "Error: La gala aún no ha comenzado. Comienza el " +
+                                    gala.getFechaRealizacion().format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")),
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if (ahora.isAfter(fechaLimite)) {
+                    Toast.makeText(FormPuntuacion.this,
+                            "Error: El periodo de votación (24h) ha finalizado. Finalizó el " +
+                                    fechaLimite.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")),
+                            Toast.LENGTH_LONG).show();
                     return;
                 }
 
@@ -124,9 +156,11 @@ public class FormPuntuacion extends AppCompatActivity {
                 puntuacionService.buscarVoto(idEspectador, idGala, idConcursante).removeObserver(this);
 
                 if (votoExistente != null) {
-                    Toast.makeText(FormPuntuacion.this, "Ya has puntuado a este participante en esta gala.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(FormPuntuacion.this,
+                            "Error: Ya has puntuado a este participante en esta gala con " + votoExistente.getValor() + " puntos.",
+                            Toast.LENGTH_LONG).show();
                 } else {
-                    // Si no hay voto previo, guardamos.
+                    // Si no hay voto previo, guardamos
                     guardarPuntuacionFinal(valor, idConcursante);
                 }
             }
@@ -141,7 +175,7 @@ public class FormPuntuacion extends AppCompatActivity {
         p.setIdGala(idGala);
 
         puntuacionService.insertarPuntuacion(p);
-        Toast.makeText(this, "¡Voto registrado!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "¡Voto registrado correctamente! Has dado " + valor + " puntos.", Toast.LENGTH_SHORT).show();
         finish();
     }
 }
