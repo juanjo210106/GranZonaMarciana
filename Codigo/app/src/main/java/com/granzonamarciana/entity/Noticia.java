@@ -62,6 +62,8 @@ public class Noticia extends DomainEntity {
     public void setUrlImagen(String urlImagen) {
         this.urlImagen = urlImagen;
     }
+
+
 }
 
 

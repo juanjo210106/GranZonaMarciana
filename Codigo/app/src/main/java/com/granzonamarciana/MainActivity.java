@@ -14,27 +14,30 @@ import androidx.lifecycle.Observer;
 import com.granzonamarciana.activity.FormUsuario;
 import com.granzonamarciana.activity.Menu;
 import com.granzonamarciana.entity.TipoRol;
-import com.granzonamarciana.entity.Usuario;
-import com.granzonamarciana.service.UsuarioService;
+import com.granzonamarciana.entity.Actor;
+import com.granzonamarciana.service.ActorService;
 
 import org.mindrot.jbcrypt.BCrypt;
 
 public class MainActivity extends AppCompatActivity {
 
-    private UsuarioService usuarioService;
+    private ActorService actorService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Si ya hay sesión, vamos al menú
         comprobarSiEstaLogueado();
 
-        usuarioService = new UsuarioService(this);
+        actorService = new ActorService(this);
 
         EditText etUsername = findViewById(R.id.etUsername);
         EditText etPassword = findViewById(R.id.etPassword);
         Button btnLogin = findViewById(R.id.btnLogin);
         Button btnCrearUsuario = findViewById(R.id.btnCrearUsuario);
+        Button btnInvitado = findViewById(R.id.btnInvitado); // Botón para entrar sin loguearse
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 if (username.isEmpty() || password.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Usuario y/o contraseña vacíos", Toast.LENGTH_LONG).show();
                 } else {
-                    loginUsuario(username, password);
+                    loginActor(username, password);
                 }
             }
         });
@@ -53,22 +56,29 @@ public class MainActivity extends AppCompatActivity {
         btnCrearUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Ir a registro
+                // Ir a registro (FormUsuario)
                 startActivity(new Intent(MainActivity.this, FormUsuario.class));
             }
         });
+
+        // Opción para entrar como invitado (Requisito: Actor no autenticado)
+        if (btnInvitado != null) {
+            btnInvitado.setOnClickListener(v -> {
+                startActivity(new Intent(MainActivity.this, Menu.class));
+            });
+        }
     }
 
-    private void loginUsuario(final String username, final String password) {
-        // Buscamos en la tabla usuario (donde están todos los roles)
-        usuarioService.buscarUsuarioPorUsername(username).observe(this, new Observer<Usuario>() {
+    private void loginActor(final String username, final String password) {
+        // Buscamos en la tabla actor
+        actorService.buscarPorUsername(username).observe(this, new Observer<Actor>() {
             @Override
-            public void onChanged(Usuario usuario) {
-                if (usuario != null && BCrypt.checkpw(password, usuario.getPassword())) {
+            public void onChanged(Actor actor) {
+                if (actor != null && BCrypt.checkpw(password, actor.getPassword())) {
                     // Éxito: Guardamos sesión y vamos al Menu
-                    guardarUsuarioLogueado(usuario.getId(), usuario.getUsername(), usuario.getRol());
+                    guardarUsuarioLogueado(actor.getId(), actor.getUsername(), actor.getRol());
                     startActivity(new Intent(MainActivity.this, Menu.class));
-                    finish(); // Cerramos login
+                    finish();
                 } else {
                     Toast.makeText(MainActivity.this, "Usuario y/o contraseña incorrectos", Toast.LENGTH_LONG).show();
                 }

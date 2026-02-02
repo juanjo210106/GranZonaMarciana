@@ -24,6 +24,15 @@
         android:textColor="@color/color_principal_oscuro" />
 
     <TextView
+        android:id="@+id/tvRol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/ejemplo_rol"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        android:textColor="@android:color/black" />
+
+    <TextView
         android:id="@+id/tvCorreo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

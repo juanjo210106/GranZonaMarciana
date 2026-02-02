@@ -115,6 +115,7 @@
     <string name="ejemplo_username_lista">elpatica</string>
     <string name="ejemplo_correo_lista">paticasiempreoperativo@gmail.com</string>
     <string name="ejemplo_telefono_lista">+34 600 000 000</string>
+    <string name="ejemplo_rol">Rol: CONCURSANTE</string>
 
     <string name="txt_hola">Hola, %1$s</string>
     <string name="btn_inscribirse">Inscribirse</string>

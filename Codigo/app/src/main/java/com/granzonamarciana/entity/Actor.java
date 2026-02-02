@@ -1,10 +1,15 @@
 package com.granzonamarciana.entity;
 
-import org.intellij.lang.annotations.Pattern;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import java.io.Serializable;
 
-import java.time.LocalDate;
+@Entity(tableName = "actor")
+public class Actor extends DomainEntity implements Serializable {
 
-public abstract class Actor extends DomainEntity {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
     private String username;
     private String password;
     private TipoRol rol;
@@ -12,7 +17,6 @@ public abstract class Actor extends DomainEntity {
     private String apellido1;
     private String apellido2;
     private String correo;
-
     private String telefono;
     private String urlImagen;
 
@@ -31,10 +35,15 @@ public abstract class Actor extends DomainEntity {
         this.urlImagen = urlImagen;
     }
 
-    public Actor(String dni, String nombre, String apellido1, String apellido2, String telefono, String correo, String poblacion, String provincia, LocalDate fechaNacimiento, String password, TipoRol rol) {
+    // Getters y Setters
+    public int getId() {
+        return id;
     }
 
-    // Getters y Setters
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getUsername() {
         return username;
     }

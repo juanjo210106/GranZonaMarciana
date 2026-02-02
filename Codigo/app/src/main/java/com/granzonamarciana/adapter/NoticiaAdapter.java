@@ -1,6 +1,7 @@
 package com.granzonamarciana.adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,47 +14,62 @@ import androidx.annotation.Nullable;
 
 import com.granzonamarciana.R;
 import com.granzonamarciana.entity.Noticia;
-import com.granzonamarciana.service.NoticiaService;
-import com.squareup.picasso.Picasso;
+import com.granzonamarciana.entity.TipoRol;
 
 import java.util.List;
 
 public class NoticiaAdapter extends ArrayAdapter<Noticia> {
-    private NoticiaService noticiaService;
 
-    public NoticiaAdapter(@NonNull Context context, @NonNull List<Noticia> noticias) {
+    private final String rolUsuario;
+    private final OnNoticiaDeleteListener deleteListener;
+
+    // Interfaz para comunicar el borrado a la Activity
+    public interface OnNoticiaDeleteListener {
+        void onNoticiaDelete(Noticia noticia);
+    }
+
+    public NoticiaAdapter(@NonNull Context context, @NonNull List<Noticia> noticias, OnNoticiaDeleteListener listener) {
         super(context, 0, noticias);
-        noticiaService = new NoticiaService(context);
+        this.deleteListener = listener;
+
+        // Recuperamos el rol para saber si mostramos la papelera
+        SharedPreferences sp = context.getSharedPreferences("granzonaUser", Context.MODE_PRIVATE);
+        this.rolUsuario = sp.getString("rol", "");
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Noticia noticia = getItem(position);
-
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_noticia, parent, false);
         }
 
+        Noticia noticia = getItem(position);
+
+        // Referencias a tus IDs reales
         ImageView imgNoticia = convertView.findViewById(R.id.imgNoticia);
-        TextView tvTituloNoticia = convertView.findViewById(R.id.tvTituloNoticia);
-        TextView tvCuerpoNoticia = convertView.findViewById(R.id.tvCuerpoNoticia);
-        ImageView imgEliminarNoticia = convertView.findViewById(R.id.imgEliminarNoticia);
+        TextView tvTitulo = convertView.findViewById(R.id.tvTituloNoticia);
+        TextView tvCuerpo = convertView.findViewById(R.id.tvCuerpoNoticia);
+        ImageView imgEliminar = convertView.findViewById(R.id.imgEliminarNoticia);
 
         if (noticia != null) {
-            tvTituloNoticia.setText(noticia.getCabecera());
-            tvCuerpoNoticia.setText(noticia.getCuerpo());
+            tvTitulo.setText(noticia.getTitulo());
+            tvCuerpo.setText(noticia.getCuerpo());
 
-            if (noticia.getUrlImagen() != null && !noticia.getUrlImagen().isEmpty()) {
-                Picasso.get().load(noticia.getUrlImagen()).into(imgNoticia);
+            // GESTIÓN DE PERMISOS: Solo el Admin ve el botón de eliminar
+            if (rolUsuario.equals(TipoRol.ADMINISTRADOR.toString())) {
+                imgEliminar.setVisibility(View.VISIBLE);
+                imgEliminar.setOnClickListener(v -> {
+                    if (deleteListener != null) {
+                        deleteListener.onNoticiaDelete(noticia);
+                    }
+                });
+            } else {
+                imgEliminar.setVisibility(View.GONE);
             }
 
-            imgEliminarNoticia.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    noticiaService.eliminarNoticia(noticia);
-                }
-            });
+            // Aquí podrías poner una imagen por defecto o cargar una si tuvieras URL
+            imgNoticia.setImageResource(android.R.drawable.ic_menu_report_image);
         }
 
         return convertView;
