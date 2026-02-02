@@ -52,27 +52,29 @@
                 app:icon="@android:drawable/ic_menu_today"
                 app:iconTint="@color/black" />
 
+            <!-- CAMBIO: Este botón ahora se usa para "Ver Ediciones" (para todos) -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnInscribirse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:padding="18dp"
-                android:text="@string/btn_inscribirse"
+                android:text="@string/btn_ver_ediciones"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:backgroundTint="@color/color_principal"
                 app:cornerRadius="16dp"
-                app:icon="@android:drawable/ic_menu_edit"
+                app:icon="@android:drawable/ic_menu_agenda"
                 app:iconTint="@color/black" />
 
+            <!-- CAMBIO: Este botón se reutiliza para "Ver Galas / Votar" según rol -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnVotarGalas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:padding="18dp"
-                android:text="@string/btn_votar_galas"
+                android:text="@string/btn_ver_galas"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:backgroundTint="@color/color_principal"
@@ -185,6 +187,7 @@
         </LinearLayout>
     </ScrollView>
 
+    <!-- CAMBIO: Cerrar sesión visible para todos -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCerrarSesion"
         android:layout_width="match_parent"

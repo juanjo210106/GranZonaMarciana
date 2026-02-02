@@ -53,31 +53,51 @@ public class Menu extends AppCompatActivity {
         findViewById(R.id.btnVerNoticias).setOnClickListener(v ->
                 startActivity(new Intent(Menu.this, ListNoticia.class)));
 
-        // Consultar ediciones (Usamos btnInscribirse que ya existe en tu XML)
-        View btnInscribirse = findViewById(R.id.btnInscribirse);
-        if (btnInscribirse != null) {
-            // Visible para Invitados (ver), Concursantes (inscribirse) y Espectadores (ver)
-            btnInscribirse.setVisibility(esAdmin ? GONE : VISIBLE);
-            btnInscribirse.setOnClickListener(v ->
-                    startActivity(new Intent(Menu.this, ListEdicionInscribible.class)));
+        // CAMBIO: Ver Ediciones - ahora visible para TODOS (reutilizamos btnInscribirse)
+        View btnVerEdiciones = findViewById(R.id.btnInscribirse);
+        if (btnVerEdiciones != null) {
+            btnVerEdiciones.setVisibility(VISIBLE);
+            btnVerEdiciones.setOnClickListener(v ->
+                    startActivity(new Intent(Menu.this, ListEdicion.class)));
         }
 
         // --- 2. ACTORES REGISTRADOS (Cualquier rol logueado) ---
         int visLogueado = estaLogueado ? VISIBLE : GONE;
 
-        // Editar perfil y cerrar sesión
+        // Editar perfil - solo para usuarios logueados
         configurarVisibilidad(R.id.btnEditarPerfil, visLogueado, FormUsuario.class);
-        configurarVisibilidad(R.id.btnCerrarSesion, visLogueado, null);
 
-        // Consultar galas y puntuaciones
-        configurarVisibilidad(R.id.btnMisPuntuaciones, visLogueado, ListPuntuacion.class);
+        // CAMBIO: Cerrar sesión - visible para TODOS (logueados e invitados)
+        configurarVisibilidad(R.id.btnCerrarSesion, VISIBLE, null);
+
+        // CAMBIO: Ver galas - visible para espectadores y concursantes (reutilizamos btnMisPuntuaciones para acceso)
+        // Pero agregamos lógica adicional aquí
+        View btnMisPuntuaciones = findViewById(R.id.btnMisPuntuaciones);
+        if (btnMisPuntuaciones != null) {
+            if (estaLogueado) {
+                btnMisPuntuaciones.setVisibility(VISIBLE);
+                btnMisPuntuaciones.setOnClickListener(v ->
+                        startActivity(new Intent(Menu.this, ListPuntuacion.class)));
+            } else {
+                btnMisPuntuaciones.setVisibility(GONE);
+            }
+        }
 
         // --- 3. ROLES ESPECÍFICOS ---
-        // Espectador: Puntuar en galas
+        // CAMBIO: Espectador y Concursante pueden ver galas
         View btnVotar = findViewById(R.id.btnVotarGalas);
         if (btnVotar != null) {
-            btnVotar.setVisibility(esEspectador ? VISIBLE : GONE);
-            btnVotar.setOnClickListener(v -> startActivity(new Intent(Menu.this, ListGalaVotable.class)));
+            if (esEspectador) {
+                // Espectadores votan
+                btnVotar.setVisibility(VISIBLE);
+                btnVotar.setOnClickListener(v -> startActivity(new Intent(Menu.this, ListGalaVotable.class)));
+            } else if (esConcursante) {
+                // Concursantes ven galas pero no votan
+                btnVotar.setVisibility(VISIBLE);
+                btnVotar.setOnClickListener(v -> startActivity(new Intent(Menu.this, ListGala.class)));
+            } else {
+                btnVotar.setVisibility(GONE);
+            }
         }
 
         // --- 4. SECCIÓN ADMINISTRADOR ---
@@ -98,6 +118,9 @@ public class Menu extends AppCompatActivity {
         configurarVisibilidad(R.id.btnGestionarGalas, visAdmin, ListGala.class);
         configurarVisibilidad(R.id.btnGestionarSolicitudes, visAdmin, ListSolicitud.class);
         configurarVisibilidad(R.id.btnUsuarios, visAdmin, ListUsuario.class);
+
+        // CAMBIO: Crear administradores - reutilizamos un botón o agregamos funcionalidad
+        // Para no crear nuevos botones, permitimos crear admin desde ListUsuario
     }
 
     private void configurarVisibilidad(int idBtn, int visibilidad, Class<?> destino) {
@@ -125,6 +148,7 @@ public class Menu extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        // CAMBIO: Actualizar nombre cuando se edite el perfil
         actualizarDatosSesion();
         configurarBotonesPorRol();
     }

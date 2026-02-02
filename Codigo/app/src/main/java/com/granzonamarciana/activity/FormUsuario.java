@@ -80,7 +80,7 @@ public class FormUsuario extends AppCompatActivity {
         roles.add(TipoRol.ESPECTADOR.toString());
         roles.add(TipoRol.CONCURSANTE.toString());
 
-        // Solo un Administrador puede asignar el rol de Administrador
+        // CAMBIO: Solo un Administrador puede asignar el rol de Administrador
         if (rolSesion.equals(TipoRol.ADMINISTRADOR.toString())) {
             roles.add(TipoRol.ADMINISTRADOR.toString());
         }
@@ -137,6 +137,16 @@ public class FormUsuario extends AppCompatActivity {
             actorCargado.setRol(TipoRol.valueOf(rolSeleccionado));
 
             actorService.actualizarActor(actorCargado);
+
+            // CAMBIO: Si es el perfil propio, actualizar SharedPreferences
+            if (idSesion == actorCargado.getId()) {
+                getSharedPreferences("granzonaUser", MODE_PRIVATE)
+                        .edit()
+                        .putString("username", username)
+                        .putString("rol", rolSeleccionado)
+                        .apply();
+            }
+
             Toast.makeText(this, "Cambios guardados", Toast.LENGTH_SHORT).show();
             finish();
         } else {

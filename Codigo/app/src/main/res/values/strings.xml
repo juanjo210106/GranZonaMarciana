@@ -13,10 +13,12 @@
     <string name="txt_panel_control">Panel de Control</string>
     <string name="txt_administracion_label">ADMINISTRACIÓN</string>
     <string name="btn_ver_noticias">Ver Noticias</string>
+    <string name="btn_ver_ediciones">Ver Ediciones</string>
+    <string name="btn_ver_galas">Ver Galas</string>
     <string name="btn_votar_galas">Votar en Galas</string>
     <string name="btn_gestionar_ediciones">Gestionar Ediciones</string>
-    <string name="btn_usuarios_lista">Lista de Usuarios</string>
-    <string name="btn_crear_admin">Nuevo Administrador</string>
+    <string name="btn_usuarios_lista">Gestionar Usuarios</string>
+    <string name="btn_crear_admin">Crear Administrador</string>
     <string name="btn_cerrar_sesion">Cerrar Sesión</string>
     <string name="btn_volver_menu">Volver al Menú</string>
 

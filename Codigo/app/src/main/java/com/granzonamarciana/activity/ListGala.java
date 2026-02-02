@@ -96,11 +96,15 @@ public class ListGala extends AppCompatActivity {
     private void mostrarMenuOpciones(Gala gala) {
         List<String> opciones = new ArrayList<>();
 
-        // Definir opciones según ROL
+        // CAMBIO: Definir opciones según ROL
         if (rol.equals(TipoRol.ADMINISTRADOR.toString())) {
             opciones.add("Editar Gala");
             opciones.add("Ver Resultados Globales");
+        } else if (rol.equals(TipoRol.CONCURSANTE.toString()) || rol.equals(TipoRol.ESPECTADOR.toString())) {
+            // Concursantes y espectadores solo ven resultados
+            opciones.add("Ver Resultados de la Gala");
         } else {
+            // Invitados pueden ver resultados públicos
             opciones.add("Ver Resultados de la Gala");
         }
 
@@ -114,14 +118,14 @@ public class ListGala extends AppCompatActivity {
                         if (which == 0) {
                             // Admin -> Editar
                             Intent i = new Intent(this, FormGala.class);
-                            i.putExtra("gala", gala);
+                            i.putExtra("idGala", gala.getId());
                             startActivity(i);
                         } else {
                             // Admin -> Resultados
                             verPuntuaciones(gala.getId());
                         }
                     } else {
-                        // Usuario Normal -> Solo tiene la opción "Ver Resultados" (pos 0)
+                        // Todos los demás -> Solo resultados
                         verPuntuaciones(gala.getId());
                     }
                 })
