@@ -95,7 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginTop="12dp"
-            android:text="Entrar como Invitado"
+            android:text="@string/btn_invitado"
             android:textAllCaps="false"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -133,14 +133,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Powered by "
+            android:text="@string/txt_poweredby"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:layout_marginRight="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ecentia.es"
+            android:text="@string/best_company"
             android:textColor="@color/color_principal_oscuro"
             android:textSize="15sp"
             android:textStyle="bold" />

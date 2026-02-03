@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(Actor actor) {
                 if (actor != null && BCrypt.checkpw(password, actor.getPassword())) {
-                    // Éxito: Guardamos sesión y vamos al Menu
+                    // Guardamos sesión y vamos al Menu
                     guardarUsuarioLogueado(actor.getId(), actor.getUsername(), actor.getRol());
                     startActivity(new Intent(MainActivity.this, Menu.class));
                     finish();

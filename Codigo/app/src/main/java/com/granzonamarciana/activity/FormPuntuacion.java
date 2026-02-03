@@ -86,7 +86,7 @@ public class FormPuntuacion extends AppCompatActivity {
         validarExistenciaConcursante(valor, idConcursante);
     }
 
-    // Paso 1: ¿Existe el concursante Y tiene rol CONCURSANTE?
+    // Paso 1: Que exista el concursante y tenga el rol
     private void validarExistenciaConcursante(int valor, int idConcursante) {
         actorService.buscarPorId(idConcursante).observe(this, new Observer<Actor>() {
             @Override

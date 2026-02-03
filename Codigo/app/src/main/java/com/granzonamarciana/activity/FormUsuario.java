@@ -138,7 +138,7 @@ public class FormUsuario extends AppCompatActivity {
 
             actorService.actualizarActor(actorCargado);
 
-            // CAMBIO: Si es el perfil propio, actualizar SharedPreferences
+            // Si es el perfil propio, actualizar SharedPreferences
             if (idSesion == actorCargado.getId()) {
                 getSharedPreferences("granzonaUser", MODE_PRIVATE)
                         .edit()

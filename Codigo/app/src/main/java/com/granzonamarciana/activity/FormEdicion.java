@@ -37,7 +37,7 @@ public class FormEdicion extends AppCompatActivity {
         Button btnGuardar = findViewById(R.id.btnGuardar);
         Button btnVolver = findViewById(R.id.btnVolver);
 
-        // LÓGICA DE CALENDARIO: Soluciona el bug de los campos bloqueados
+        // LÓGICA DE CALENDARIO
         etFechaInicio.setOnClickListener(v -> mostrarCalendario(etFechaInicio));
         etFechaFin.setOnClickListener(v -> mostrarCalendario(etFechaFin));
 
@@ -83,9 +83,11 @@ public class FormEdicion extends AppCompatActivity {
         btnVolver.setOnClickListener(v -> finish());
     }
 
+    // Método que abre el calendario
     private void mostrarCalendario(TextInputEditText editText) {
         Calendar c = Calendar.getInstance();
         new DatePickerDialog(this, (view, year, month, dayOfMonth) -> {
+            // Formato de calendario
             String fecha = String.format("%02d/%02d/%d", dayOfMonth, (month + 1), year);
             editText.setText(fecha);
         }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)).show();

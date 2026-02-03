@@ -46,8 +46,6 @@ public class ListNoticia extends AppCompatActivity implements NoticiaAdapter.OnN
         }
 
         lvNoticias.setEmptyView(tvSinNoticias);
-
-        // SOLUCIÓN AL ERROR: Pasamos 'this' como tercer argumento (el listener)
         noticiaAdapter = new NoticiaAdapter(this, new ArrayList<>(), this);
         lvNoticias.setAdapter(noticiaAdapter);
 

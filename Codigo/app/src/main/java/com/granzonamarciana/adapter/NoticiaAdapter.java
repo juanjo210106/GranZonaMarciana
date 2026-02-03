@@ -46,14 +46,12 @@ public class NoticiaAdapter extends ArrayAdapter<Noticia> {
 
         Noticia noticia = getItem(position);
 
-        // Referencias a tus IDs reales
         ImageView imgNoticia = convertView.findViewById(R.id.imgNoticia);
         TextView tvTitulo = convertView.findViewById(R.id.tvTituloNoticia);
         TextView tvCuerpo = convertView.findViewById(R.id.tvCuerpoNoticia);
         ImageView imgEliminar = convertView.findViewById(R.id.imgEliminarNoticia);
 
         if (noticia != null) {
-            // CORRECCIÓN: Usar getCabecera() en lugar de getTitulo()
             tvTitulo.setText(noticia.getCabecera());
             tvCuerpo.setText(noticia.getCuerpo());
 
@@ -68,7 +66,6 @@ public class NoticiaAdapter extends ArrayAdapter<Noticia> {
                 imgEliminar.setVisibility(View.GONE);
             }
 
-            // Aquí podrías poner una imagen por defecto o cargar una si tuvieras URL
             imgNoticia.setImageResource(android.R.drawable.ic_menu_report_image);
         }
 

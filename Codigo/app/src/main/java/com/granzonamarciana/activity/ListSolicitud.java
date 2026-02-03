@@ -67,9 +67,7 @@ public class ListSolicitud extends AppCompatActivity {
         }
     }
 
-    /**
-     * Muestra un diálogo para Aprobar o Rechazar la solicitud
-     */
+    // Mostramos diálogo para aprobar o rechazar la solicitud
     private void gestionarSolicitud(Solicitud s) {
         if (s == null) return;
 
@@ -98,7 +96,7 @@ public class ListSolicitud extends AppCompatActivity {
 
         dialog.show();
 
-        // Aplicamos el color de los botones para que coincida con tu diseño
+        // Color verde a las alertas (que si no me da TOC que salga morado)
         int colorPrincipal = ContextCompat.getColor(this, R.color.color_principal_oscuro);
         if (dialog.getButton(AlertDialog.BUTTON_POSITIVE) != null) {
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorPrincipal);

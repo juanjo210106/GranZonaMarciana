@@ -50,6 +50,7 @@ public class FormAdmin extends AppCompatActivity {
         findViewById(R.id.btnGuardar).setOnClickListener(v -> crearActualizarAdmin());
     }
 
+    // Métodos para facilitarnos la vida
     private void inicializarCampos() {
         etUsername = findViewById(R.id.etNombreUsuario);
         etContrasena = findViewById(R.id.etContraseña);
@@ -58,7 +59,7 @@ public class FormAdmin extends AppCompatActivity {
         etApellido2 = findViewById(R.id.etApellido2);
         etCorreo = findViewById(R.id.etCorreo);
         etTelefono = findViewById(R.id.etTelefono);
-        etUrlImagen = findViewById(R.id.etUrlImagen); // Atributo presente en tu Actor
+        etUrlImagen = findViewById(R.id.etUrlImagen);
     }
 
     private void cargarDatosEnFormulario(Administrador a) {
