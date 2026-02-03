@@ -9,7 +9,128 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9bb223d-b55c-4a84-ad0f-14ddac4a3cfb" name="Changes" comment="" />
+    <list default="true" id="b9bb223d-b55c-4a84-ad0f-14ddac4a3cfb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/.idea/AndroidProjectSystem.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/.idea/AndroidProjectSystem.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/.idea/deviceManager.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/.idea/deviceManager.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/.idea/markdown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/.idea/markdown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/.idea/migrations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/.idea/migrations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/androidTest/java/com/granzonamarciana/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/androidTest/java/com/granzonamarciana/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/FormAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/FormAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/FormEdicion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/FormEdicion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/FormGala.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/FormGala.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/FormNoticia.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/FormNoticia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/FormPuntuacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/FormPuntuacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/FormSolicitud.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/FormSolicitud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/FormUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/FormUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListEdicion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListEdicion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListEdicionInscribible.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListEdicionInscribible.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListGala.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListGala.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListGalaVotable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListGalaVotable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListNoticia.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListNoticia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListPuntuacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListPuntuacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListSolicitud.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListSolicitud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/ListUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/activity/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/adapter/ActorAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/adapter/ActorAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/adapter/EdicionAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/adapter/EdicionAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/adapter/GalaAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/adapter/GalaAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/adapter/NoticiaAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/adapter/NoticiaAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/adapter/PuntuacionAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/adapter/PuntuacionAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/adapter/SolicitudAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/adapter/SolicitudAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/ActorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/ActorDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/AdministradorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/AdministradorDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/ConcursanteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/ConcursanteDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/EdicionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/EdicionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/EspectadorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/EspectadorDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/GalaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/GalaDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/NoticiaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/NoticiaDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/PuntuacionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/PuntuacionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/SolicitudDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/SolicitudDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/database/DatabaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/database/DatabaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/database/EstadoSolicitudConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/database/EstadoSolicitudConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/database/LocalDateConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/database/LocalDateConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/database/LocalDateTimeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/database/LocalDateTimeConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/database/LocalTimeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/database/LocalTimeConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Actor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Administrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Administrador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Concursante.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Concursante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/DomainEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/DomainEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Edicion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Edicion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Espectador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Espectador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/EstadoSolicitud.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/EstadoSolicitud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Gala.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Gala.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Noticia.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Noticia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/POJO/ActorConPuntuaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/POJO/ActorConPuntuaciones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/POJO/ActorConSolicitudes.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/POJO/ActorConSolicitudes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Puntuacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Puntuacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Solicitud.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/Solicitud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/TipoRol.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/entity/TipoRol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/ActorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/ActorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/AdministradorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/AdministradorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/ConcursanteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/ConcursanteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/EdicionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/EdicionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/EspectadorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/EspectadorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/GalaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/GalaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/NoticiaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/NoticiaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/PuntuacionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/PuntuacionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/SolicitudService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/service/SolicitudService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_form_admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_form_admin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_form_edicion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_form_edicion.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_form_gala.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_form_gala.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_form_noticia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_form_noticia.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_form_puntuacion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_form_puntuacion.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_form_solicitud.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_form_solicitud.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_form_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_form_usuario.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_edicion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_edicion.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_edicion_inscribible.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_edicion_inscribible.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_gala.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_gala.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_gala_votable.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_gala_votable.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_noticia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_noticia.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_puntuacion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_puntuacion.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_solicitud.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_solicitud.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_list_usuario.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/activity_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/item_edicion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/item_edicion.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/item_gala.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/item_gala.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/item_noticia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/item_noticia.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/item_puntuacion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/item_puntuacion.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/item_solicitud.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/item_solicitud.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/item_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/layout/item_usuario.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/xml/backup_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/app/src/test/java/com/granzonamarciana/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/app/src/test/java/com/granzonamarciana/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigo/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Codigo/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +139,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[LocalEmulator::path=C:\Users\josem\.android\avd\Medium_Phone.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -38,25 +159,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Android App.GranZonaMarciana.executor&quot;: &quot;Run&quot;,
-    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.GranZonaMarciana.executor": "Run",
+    "Android App.app.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/alumno/Desktop/-- GitHub --/GranZonaMarciana",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "AndroidSdkUpdater"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="Gran_Zona_Marciana.app" />
@@ -126,9 +249,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
+      <method v="2" />
     </configuration>
   </component>
   <component name="TaskManager">
@@ -140,5 +261,19 @@
       <updated>1769963405223</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Codigo/app/src/main/java/com/granzonamarciana/dao/EspectadorDao.java</url>
+          <line>17</line>
+          <properties class="com.granzonamarciana.dao.EspectadorDao" method="insertarEspectador">
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

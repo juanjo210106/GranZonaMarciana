@@ -22,9 +22,11 @@ public interface SolicitudDao {
     @Delete
     void eliminarSolicitud(Solicitud solicitud);
 
+    // Ver todas las solicitudes
     @Query("SELECT * FROM solicitud")
     LiveData<List<Solicitud>> listarSolicitudes();
 
+    // Ver solicitud por id
     @Query("SELECT * FROM solicitud WHERE id = :id")
     LiveData<Solicitud> buscarSolicitudPorId(int id);
 

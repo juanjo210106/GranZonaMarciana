@@ -14,12 +14,15 @@ import java.util.List;
 @Dao
 public interface ActorDao {
 
+    // Insertar un Actor
     @Insert
     void insertarActor(Actor actor);
 
+    // Actualizar un Actor
     @Update
     void actualizarActor(Actor actor);
 
+    // Eliminar un actor
     @Delete
     void eliminarActor(Actor actor);
 
@@ -40,7 +43,7 @@ public interface ActorDao {
     @Query("SELECT * FROM actor WHERE rol = :rol")
     LiveData<List<Actor>> listarActoresPorRol(String rol);
 
-    // Listar absolutamente todos (uso interno admin)
+    // Listar absolutamente todos
     @Query("SELECT * FROM actor")
     LiveData<List<Actor>> listarTodos();
 
