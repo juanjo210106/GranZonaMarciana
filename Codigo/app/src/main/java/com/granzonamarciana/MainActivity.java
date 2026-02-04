@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer;
 
 import com.granzonamarciana.activity.FormUsuario;
 import com.granzonamarciana.activity.Menu;
+import com.granzonamarciana.database.PopulateDB;
 import com.granzonamarciana.entity.TipoRol;
 import com.granzonamarciana.entity.Actor;
 import com.granzonamarciana.service.ActorService;
@@ -22,11 +23,16 @@ import org.mindrot.jbcrypt.BCrypt;
 public class MainActivity extends AppCompatActivity {
 
     private ActorService actorService;
+    private PopulateDB populateDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Inicializar PopulateDB y poblar la base de datos si es necesario
+        populateDB = new PopulateDB(this);
+        populateDB.populateIfNeeded();
 
         // Si ya hay sesión, vamos al menú
         comprobarSiEstaLogueado();

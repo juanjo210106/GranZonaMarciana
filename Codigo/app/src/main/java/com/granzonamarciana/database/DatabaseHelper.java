@@ -17,7 +17,6 @@ import com.granzonamarciana.entity.Gala;
 import com.granzonamarciana.entity.Noticia;
 import com.granzonamarciana.entity.Puntuacion;
 import com.granzonamarciana.entity.Solicitud;
-import com.granzonamarciana.entity.TipoRol;
 
 import com.granzonamarciana.dao.ActorDao;
 import com.granzonamarciana.dao.AdministradorDao;
@@ -29,11 +28,8 @@ import com.granzonamarciana.dao.NoticiaDao;
 import com.granzonamarciana.dao.PuntuacionDao;
 import com.granzonamarciana.dao.SolicitudDao;
 
-import org.mindrot.jbcrypt.BCrypt;
-import java.util.concurrent.Executors;
-
 @Database(entities = {
-        Actor.class, // Sustituimos Usuario por Actor
+        Actor.class,
         Administrador.class,
         Concursante.class,
         Espectador.class,
@@ -42,7 +38,7 @@ import java.util.concurrent.Executors;
         Noticia.class,
         Puntuacion.class,
         Solicitud.class
-}, version = 5) // Incrementamos versión por cambio de esquema
+}, version = 5)
 @TypeConverters({LocalDateConverter.class, LocalDateTimeConverter.class, EstadoSolicitudConverter.class})
 public abstract class DatabaseHelper extends RoomDatabase {
 
@@ -58,27 +54,8 @@ public abstract class DatabaseHelper extends RoomDatabase {
                         @Override
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             super.onCreate(db);
-                            // Precarga del Administrador Inicial (admin / admin123)
-                            Executors.newSingleThreadExecutor().execute(() -> {
-                                // Encriptamos la contraseña "admin123"
-                                String passHash = BCrypt.hashpw("admin123", BCrypt.gensalt());
-
-                                // Creamos el objeto administrador como un Actor de tipo ADMINISTRADOR
-                                Actor adminInicial = new Actor(
-                                        "admin",
-                                        passHash,
-                                        TipoRol.ADMINISTRADOR,
-                                        "Admin",
-                                        "Principal",
-                                        "Sistema",
-                                        "admin@granzona.com",
-                                        "600000000",
-                                        ""
-                                );
-
-                                // Insertamos usando el DAO de Actor
-                                instanciaBD.actorDao().insertarActor(adminInicial);
-                            });
+                            // La población de datos ahora se maneja desde PopulateDB
+                            // Esto permite mejor control y se ejecuta desde MainActivity
                         }
                     })
                     .build();
