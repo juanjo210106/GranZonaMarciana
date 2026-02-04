@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import com.granzonamarciana.R;
 import com.granzonamarciana.entity.Actor;
 import com.granzonamarciana.entity.TipoRol;
 import com.granzonamarciana.service.ActorService;
+import com.squareup.picasso.Picasso;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -24,6 +26,7 @@ public class FormUsuario extends AppCompatActivity {
     private ActorService actorService;
     private EditText etNombreUsuario, etContrasena, etNombre, etApellido1, etApellido2, etCorreo, etTelefono, etUrlImagen;
     private AutoCompleteTextView autoCompleteRol;
+    private ImageView imgPerfil;
     private Actor actorCargado;
 
     private int idSesion;
@@ -58,6 +61,13 @@ public class FormUsuario extends AppCompatActivity {
             autoCompleteRol.setEnabled(false);
         }
 
+        // 4. Listener para actualizar imagen cuando cambie la URL
+        etUrlImagen.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                cargarImagenDesdeUrl();
+            }
+        });
+
         findViewById(R.id.btnVolver).setOnClickListener(v -> finish());
         findViewById(R.id.btnGuardar).setOnClickListener(v -> procesarFormulario());
     }
@@ -72,6 +82,7 @@ public class FormUsuario extends AppCompatActivity {
         etTelefono = findViewById(R.id.etTelefono);
         etUrlImagen = findViewById(R.id.etUrlImagen);
         autoCompleteRol = findViewById(R.id.autoCompleteRol);
+        imgPerfil = findViewById(R.id.imgPerfil);
     }
 
     private void configurarSelectorRoles() {
@@ -102,8 +113,28 @@ public class FormUsuario extends AppCompatActivity {
                 etTelefono.setText(actor.getTelefono());
                 etUrlImagen.setText(actor.getUrlImagen());
                 autoCompleteRol.setText(actor.getRol().toString(), false);
+
+                // Cargar imagen de perfil
+                cargarImagenDesdeUrl();
             }
         });
+    }
+
+    private void cargarImagenDesdeUrl() {
+        String url = etUrlImagen.getText().toString().trim();
+
+        if (!TextUtils.isEmpty(url)) {
+            Picasso.get()
+                    .load(url)
+                    .placeholder(R.drawable.ic_launcher_foreground) // Imagen mientras carga
+                    .error(android.R.drawable.ic_menu_report_image) // Imagen si falla
+                    .resize(200, 200) // Redimensionar para optimizar
+                    .centerCrop()
+                    .into(imgPerfil);
+        } else {
+            // Si no hay URL, mostrar imagen por defecto
+            imgPerfil.setImageResource(android.R.drawable.ic_menu_report_image);
+        }
     }
 
     private void procesarFormulario() {
