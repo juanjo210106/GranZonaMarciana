@@ -128,7 +128,7 @@ ConstraintLayout: 2.1.4 📐
 <tr>
 <td width="50%" align="center">
 
-![Pantalla de Login](screenshots/activity_main.png)
+![Pantalla de Login](Codigo/screenshots/activity_main.png)
 
 **🔑 Pantalla de Login**
 
@@ -137,7 +137,7 @@ ConstraintLayout: 2.1.4 📐
 </td>
 <td width="50%" align="center">
 
-![Registro de Usuario](screenshots/activity_form_usuario.png)
+![Registro de Usuario](Codigo/screenshots/activity_form_usuario.png)
 
 **📝 Registro de Usuario**
 
@@ -155,7 +155,7 @@ ConstraintLayout: 2.1.4 📐
 <tr>
 <td align="center">
 
-![Menú Principal](screenshots/activity_menu.png)
+![Menú Principal](Codigo/screenshots/activity_menu.png)
 
 **🎛️ Menú Principal**
 
@@ -173,7 +173,7 @@ ConstraintLayout: 2.1.4 📐
 <tr>
 <td width="50%" align="center">
 
-![Crear Noticia](screenshots/activity_form_noticia.png)
+![Crear Noticia](Codigo/screenshots/activity_form_noticia.png)
 
 **📢 Crear/Editar Noticia**
 
@@ -182,7 +182,7 @@ ConstraintLayout: 2.1.4 📐
 </td>
 <td width="50%" align="center">
 
-![Gestión de Ediciones](screenshots/activity_form_edicion.png)
+![Gestión de Ediciones](Codigo/screenshots/activity_form_edicion.png)
 
 **📅 Gestionar Edición**
 
@@ -200,7 +200,7 @@ ConstraintLayout: 2.1.4 📐
 <tr>
 <td align="center">
 
-![Programar Gala](screenshots/activity_form_gala.png)
+![Programar Gala](Codigo/screenshots/activity_form_gala.png)
 
 **🎊 Programar Gala**
 
@@ -218,7 +218,7 @@ ConstraintLayout: 2.1.4 📐
 <tr>
 <td width="50%" align="center">
 
-![Emitir Voto](screenshots/activity_form_puntuacion.png)
+![Emitir Voto](Codigo/screenshots/activity_form_puntuacion.png)
 
 **⭐ Emitir Puntuación**
 
@@ -227,7 +227,7 @@ ConstraintLayout: 2.1.4 📐
 </td>
 <td width="50%" align="center">
 
-![Solicitud de Inscripción](screenshots/activity_form_solicitud.png)
+![Solicitud de Inscripción](Codigo/screenshots/activity_form_solicitud.png)
 
 **📝 Solicitud de Inscripción**
 
