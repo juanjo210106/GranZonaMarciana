@@ -2,25 +2,24 @@ package com.granzonamarciana.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 
 import com.granzonamarciana.R;
-import com.granzonamarciana.entity.Administrador;
+import com.granzonamarciana.entity.Actor;
 import com.granzonamarciana.entity.TipoRol;
-import com.granzonamarciana.service.AdministradorService;
+import com.granzonamarciana.service.ActorService;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 import org.mindrot.jbcrypt.BCrypt;
 
 public class FormAdmin extends AppCompatActivity {
 
-    private AdministradorService administradorService;
-    private EditText etUsername, etContrasena, etNombre, etApellido1, etApellido2, etCorreo, etTelefono, etUrlImagen;
-    private Administrador administrador;
+    private ActorService actorService;
+    private TextInputEditText etUsername, etContrasena, etNombre, etApellido1, etApellido2, etCorreo, etTelefono, etUrlImagen;
+    private Actor administrador;
     private boolean editando;
 
     @Override
@@ -28,17 +27,16 @@ public class FormAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_admin);
 
-        administradorService = new AdministradorService(this);
+        actorService = new ActorService(this);
         inicializarCampos();
 
         editando = getIntent().getBooleanExtra("editando", false);
 
         if (editando) {
-            // Se recupera el ID de la sesión "granzonaUser"
             int id = getSharedPreferences("granzonaUser", MODE_PRIVATE).getInt("id", -1);
             if (id != -1) {
-                administradorService.buscarAdministradorPorId(id).observe(this, a -> {
-                    if (a != null) {
+                actorService.buscarPorId(id).observe(this, a -> {
+                    if (a != null && a.getRol() == TipoRol.ADMINISTRADOR) {
                         administrador = a;
                         cargarDatosEnFormulario(administrador);
                     }
@@ -50,7 +48,6 @@ public class FormAdmin extends AppCompatActivity {
         findViewById(R.id.btnGuardar).setOnClickListener(v -> crearActualizarAdmin());
     }
 
-    // Métodos para facilitarnos la vida
     private void inicializarCampos() {
         etUsername = findViewById(R.id.etNombreUsuario);
         etContrasena = findViewById(R.id.etContraseña);
@@ -62,7 +59,7 @@ public class FormAdmin extends AppCompatActivity {
         etUrlImagen = findViewById(R.id.etUrlImagen);
     }
 
-    private void cargarDatosEnFormulario(Administrador a) {
+    private void cargarDatosEnFormulario(Actor a) {
         etUsername.setText(a.getUsername());
         etNombre.setText(a.getNombre());
         etApellido1.setText(a.getApellido1());
@@ -100,13 +97,12 @@ public class FormAdmin extends AppCompatActivity {
             administrador.setTelefono(tel);
             administrador.setUrlImagen(img);
 
-            administradorService.actualizarAdministrador(administrador);
+            actorService.actualizarActor(administrador);
             Toast.makeText(this, "Perfil actualizado", Toast.LENGTH_SHORT).show();
         } else {
-            // Usamos tu constructor de Administrador
-            Administrador nuevo = new Administrador(user, passwordCifrada, TipoRol.ADMINISTRADOR,
+            Actor nuevo = new Actor(user, passwordCifrada, TipoRol.ADMINISTRADOR,
                     nom, ape1, ape2, mail, tel, img);
-            administradorService.insertarAdministrador(nuevo);
+            actorService.insertarActor(nuevo);
             Toast.makeText(this, "Administrador creado", Toast.LENGTH_SHORT).show();
         }
         finish();

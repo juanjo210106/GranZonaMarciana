@@ -1,10 +1,12 @@
 package com.granzonamarciana.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,7 @@ import androidx.annotation.Nullable;
 
 import com.granzonamarciana.R;
 import com.granzonamarciana.entity.Actor;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -24,20 +27,23 @@ public class ActorAdapter extends ArrayAdapter<Actor> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        // Inflamos el layout item_usuario.xml si es necesario
+        ViewHolder holder;
+
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_usuario, parent, false);
+            holder = new ViewHolder();
+            holder.imgPerfil = convertView.findViewById(R.id.imgPerfilUsuario);
+            holder.tvNombreActor = convertView.findViewById(R.id.tvNombreActor);
+            holder.tvUsername = convertView.findViewById(R.id.tvUsername);
+            holder.tvRol = convertView.findViewById(R.id.tvRol);
+            holder.tvCorreo = convertView.findViewById(R.id.tvCorreo);
+            holder.tvTelefono = convertView.findViewById(R.id.tvTelefono);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        // Obtenemos el actor de la posición actual
         Actor actor = getItem(position);
-
-        // Referencias a los IDs exactos de tu item_usuario.xml
-        TextView tvNombreActor = convertView.findViewById(R.id.tvNombreActor);
-        TextView tvUsername = convertView.findViewById(R.id.tvUsername);
-        TextView tvRol = convertView.findViewById(R.id.tvRol);
-        TextView tvCorreo = convertView.findViewById(R.id.tvCorreo);
-        TextView tvTelefono = convertView.findViewById(R.id.tvTelefono);
 
         if (actor != null) {
             // 1. Nombre completo (Nombre + Apellidos)
@@ -45,23 +51,46 @@ public class ActorAdapter extends ArrayAdapter<Actor> {
             if (actor.getApellido2() != null && !actor.getApellido2().isEmpty()) {
                 nombreCompleto += " " + actor.getApellido2();
             }
-            tvNombreActor.setText(nombreCompleto);
+            holder.tvNombreActor.setText(nombreCompleto);
 
             // 2. Nombre de usuario
-            tvUsername.setText(actor.getUsername());
+            holder.tvUsername.setText(actor.getUsername());
 
             // 3. Rol del sistema (Concursante, Espectador, etc.)
             if (actor.getRol() != null) {
-                tvRol.setText("Rol: " + actor.getRol().toString());
+                holder.tvRol.setText("Rol: " + actor.getRol().toString());
             }
 
             // 4. Correo electrónico
-            tvCorreo.setText(actor.getCorreo());
+            holder.tvCorreo.setText(actor.getCorreo());
 
             // 5. Teléfono de contacto
-            tvTelefono.setText(actor.getTelefono());
+            holder.tvTelefono.setText(actor.getTelefono());
+
+            // 6. Cargar imagen de perfil con Picasso
+            String urlImagen = actor.getUrlImagen();
+            if (!TextUtils.isEmpty(urlImagen)) {
+                Picasso.get()
+                        .load(urlImagen)
+                        .placeholder(R.drawable.ic_launcher_foreground)
+                        .error(android.R.drawable.ic_menu_report_image)
+                        .resize(150, 150)
+                        .centerCrop()
+                        .into(holder.imgPerfil);
+            } else {
+                holder.imgPerfil.setImageResource(android.R.drawable.ic_menu_report_image);
+            }
         }
 
         return convertView;
+    }
+
+    static class ViewHolder {
+        ImageView imgPerfil;
+        TextView tvNombreActor;
+        TextView tvUsername;
+        TextView tvRol;
+        TextView tvCorreo;
+        TextView tvTelefono;
     }
 }
