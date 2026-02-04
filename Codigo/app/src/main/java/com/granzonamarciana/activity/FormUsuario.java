@@ -2,17 +2,22 @@ package com.granzonamarciana.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.card.MaterialCardView;
 import com.granzonamarciana.R;
 import com.granzonamarciana.entity.Actor;
 import com.granzonamarciana.entity.TipoRol;
 import com.granzonamarciana.service.ActorService;
+import com.squareup.picasso.Picasso;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -24,6 +29,8 @@ public class FormUsuario extends AppCompatActivity {
     private ActorService actorService;
     private EditText etNombreUsuario, etContrasena, etNombre, etApellido1, etApellido2, etCorreo, etTelefono, etUrlImagen;
     private AutoCompleteTextView autoCompleteRol;
+    private MaterialCardView cardPerfil;
+    private ImageView imgPerfil;
     private Actor actorCargado;
 
     private int idSesion;
@@ -50,13 +57,27 @@ public class FormUsuario extends AppCompatActivity {
         // 3. Lógica de Carga de Datos
         if (idActorGestion != -1) {
             // Caso: El Admin está consultando a otro usuario
+            mostrarFotoPerfil(true);
             cargarUsuarioParaFormulario(idActorGestion);
         } else if (idSesion != -1) {
-            // Caso: El usuario está editando su propio perfil
+            // Caso: El usuario está editando su propio perfil (Mi Perfil)
+            mostrarFotoPerfil(true);
             cargarUsuarioParaFormulario(idSesion);
             // Al editar el perfil propio, bloqueamos el cambio de rol por seguridad
             autoCompleteRol.setEnabled(false);
+        } else {
+            // Caso: Registro de nuevo usuario
+            mostrarFotoPerfil(false);
+            TextView tvEncabezado = findViewById(R.id.tvEncabezado);
+            tvEncabezado.setText("Registro de Usuario");
         }
+
+        // Listener para actualizar imagen cuando cambie la URL (solo si la foto está visible)
+        etUrlImagen.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus && cardPerfil.getVisibility() == View.VISIBLE) {
+                cargarImagenDesdeUrl();
+            }
+        });
 
         findViewById(R.id.btnVolver).setOnClickListener(v -> finish());
         findViewById(R.id.btnGuardar).setOnClickListener(v -> procesarFormulario());
@@ -72,6 +93,12 @@ public class FormUsuario extends AppCompatActivity {
         etTelefono = findViewById(R.id.etTelefono);
         etUrlImagen = findViewById(R.id.etUrlImagen);
         autoCompleteRol = findViewById(R.id.autoCompleteRol);
+        cardPerfil = findViewById(R.id.cardPerfil);
+        imgPerfil = findViewById(R.id.imgPerfil);
+    }
+
+    private void mostrarFotoPerfil(boolean mostrar) {
+        cardPerfil.setVisibility(mostrar ? View.VISIBLE : View.GONE);
     }
 
     private void configurarSelectorRoles() {
@@ -80,7 +107,7 @@ public class FormUsuario extends AppCompatActivity {
         roles.add(TipoRol.ESPECTADOR.toString());
         roles.add(TipoRol.CONCURSANTE.toString());
 
-        // CAMBIO: Solo un Administrador puede asignar el rol de Administrador
+        // Solo un Administrador puede asignar el rol de Administrador
         if (rolSesion.equals(TipoRol.ADMINISTRADOR.toString())) {
             roles.add(TipoRol.ADMINISTRADOR.toString());
         }
@@ -102,8 +129,27 @@ public class FormUsuario extends AppCompatActivity {
                 etTelefono.setText(actor.getTelefono());
                 etUrlImagen.setText(actor.getUrlImagen());
                 autoCompleteRol.setText(actor.getRol().toString(), false);
+
+                // Cargar imagen de perfil
+                cargarImagenDesdeUrl();
             }
         });
+    }
+
+    private void cargarImagenDesdeUrl() {
+        String url = etUrlImagen.getText().toString().trim();
+
+        if (!TextUtils.isEmpty(url)) {
+            Picasso.get()
+                    .load(url)
+                    .placeholder(R.drawable.ic_launcher_foreground)
+                    .error(android.R.drawable.ic_menu_report_image)
+                    .resize(200, 200)
+                    .centerCrop()
+                    .into(imgPerfil);
+        } else {
+            imgPerfil.setImageResource(android.R.drawable.ic_menu_report_image);
+        }
     }
 
     private void procesarFormulario() {
@@ -120,8 +166,11 @@ public class FormUsuario extends AppCompatActivity {
         String passwordFinal;
         if (actorCargado != null && TextUtils.isEmpty(passRaw)) {
             passwordFinal = actorCargado.getPassword();
-        } else {
+        } else if (!TextUtils.isEmpty(passRaw)) {
             passwordFinal = BCrypt.hashpw(passRaw, BCrypt.gensalt());
+        } else {
+            Toast.makeText(this, "La contraseña es obligatoria", Toast.LENGTH_SHORT).show();
+            return;
         }
 
         if (actorCargado != null) {

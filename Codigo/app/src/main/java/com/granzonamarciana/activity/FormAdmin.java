@@ -85,11 +85,16 @@ public class FormAdmin extends AppCompatActivity {
             return;
         }
 
-        String passwordCifrada = TextUtils.isEmpty(pass) ? null : BCrypt.hashpw(pass, BCrypt.gensalt());
-
         if (editando && administrador != null) {
+            // EDITAR ADMINISTRADOR EXISTENTE
             administrador.setUsername(user);
-            if (passwordCifrada != null) administrador.setPassword(passwordCifrada);
+
+            // Solo actualizar contraseña si se ingresó una nueva
+            if (!TextUtils.isEmpty(pass)) {
+                String passwordCifrada = BCrypt.hashpw(pass, BCrypt.gensalt());
+                administrador.setPassword(passwordCifrada);
+            }
+
             administrador.setNombre(nom);
             administrador.setApellido1(ape1);
             administrador.setApellido2(ape2);
@@ -100,10 +105,18 @@ public class FormAdmin extends AppCompatActivity {
             actorService.actualizarActor(administrador);
             Toast.makeText(this, "Perfil actualizado", Toast.LENGTH_SHORT).show();
         } else {
+            // CREAR NUEVO ADMINISTRADOR
+            if (TextUtils.isEmpty(pass)) {
+                Toast.makeText(this, "La contraseña es obligatoria para crear un administrador", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            String passwordCifrada = BCrypt.hashpw(pass, BCrypt.gensalt());
             Actor nuevo = new Actor(user, passwordCifrada, TipoRol.ADMINISTRADOR,
                     nom, ape1, ape2, mail, tel, img);
+
             actorService.insertarActor(nuevo);
-            Toast.makeText(this, "Administrador creado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Administrador creado correctamente", Toast.LENGTH_SHORT).show();
         }
         finish();
     }

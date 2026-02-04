@@ -29,7 +29,7 @@ import com.granzonamarciana.dao.SolicitudDao;
         Noticia.class,
         Puntuacion.class,
         Solicitud.class
-}, version = 6)  // IMPORTANTE: Incrementar versión
+}, version = 7)  // IMPORTANTE: Incrementar versión
 @TypeConverters({LocalDateConverter.class, LocalDateTimeConverter.class, EstadoSolicitudConverter.class})
 public abstract class DatabaseHelper extends RoomDatabase {
 
